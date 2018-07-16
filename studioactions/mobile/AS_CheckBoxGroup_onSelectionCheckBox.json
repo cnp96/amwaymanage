@@ -1,0 +1,29 @@
+{
+    "AS_CheckBoxGroup_be4dfb3e10ba444ca3c3e9d5ddc2aaad": {
+        "id": "AS_CheckBoxGroup_be4dfb3e10ba444ca3c3e9d5ddc2aaad",
+        "type": "ACTION_SEQUENCE",
+        "name": "AS_CheckBoxGroup_onSelectionCheckBox",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmHome",
+            "type": "forms",
+            "platform": "",
+            "KUID": "b2deb36bccc74f41bd1d0216a37e0492"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "INVOKE_FUNCTION___d6d9512ecf824fa4b9077e43e879532f",
+            "type": "INVOKE_FUNCTION",
+            "sequenceKUID": "onSelectionCheckBox",
+            "display": "onSelectionCheckBox",
+            "inputparams": [],
+            "parentId": null,
+            "callbackType": null,
+            "disabled": null,
+            "source": "module"
+        }]
+    }
+}

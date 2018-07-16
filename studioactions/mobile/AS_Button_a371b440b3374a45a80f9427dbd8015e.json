@@ -1,0 +1,21 @@
+{
+    "AS_Button_a371b440b3374a45a80f9427dbd8015e": {
+        "id": "AS_Button_a371b440b3374a45a80f9427dbd8015e",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "language": "js",
+        "actions": [{
+            "id": "INVOKE_FUNCTION__ide_onClick_dce24636258d43b3876e2cdd8eb81c27",
+            "type": "INVOKE_FUNCTION",
+            "sequenceKUID": "onClickClear",
+            "display": "onClickClear",
+            "inputparams": [],
+            "callbackType": null,
+            "disabled": null,
+            "source": "module"
+        }]
+    }
+}
