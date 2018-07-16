@@ -1,0 +1,13 @@
+{
+  "background_gradient_bottom_color": "fefefeff",
+  "background_gradient_top_color": "ffffffff",
+  "background_style": "vg",
+  "bg_type": "two",
+  "border_color": "000000ff",
+  "border_style": "plain",
+  "border_type": 0,
+  "border_width": 0,
+  "isDefaultSkin": false,
+  "kuid": "s7a6767fcd3545c0b3e8aca45cc94a3f",
+  "wType": "FlexScrollContainer"
+}

@@ -1,0 +1,23 @@
+{
+    "AS_FlexContainer_hd5ec402b4d44f0fa21fbb6fd64f0182": {
+        "id": "AS_FlexContainer_hd5ec402b4d44f0fa21fbb6fd64f0182",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "language": "js",
+        "actions": [{
+            "id": "ADD_SNIPPET_ide_onTouchStart_fc567aaf1be04745a7a3e1f2d49d6e9d",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "animateNavbar(1);",
+            "callbackType": null
+        }]
+    }
+}
