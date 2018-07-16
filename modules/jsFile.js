@@ -1,6 +1,7 @@
 var selectedGroupsData = [];
 var selectedFiltersData = [];
 
+// Utility functions
 function animate( element, params, duration, callback, delay, count ){
   kony.print("[Parthu]Element in animate method::"+element);
   duration = duration || 0.25;
@@ -32,6 +33,14 @@ function notify(msg) {
     }, 1.5);
   });
 }
+function shake(element) {
+  if(!element) return;
+  animate(element, {centerX: "48%"}, 0.1);
+  animate(element, {centerX: "52%"}, 0.1);
+  animate(element, {centerX: "48%"}, 0.1);
+  animate(element, {centerX: "52%"}, 0.1);
+  animate(element, {centerX: "50%"}, 0.1);
+}
 
 function animation() {
   try { 
@@ -54,7 +63,6 @@ function animation() {
     kony.print(e);
   }
 }
-
 function reset() {
   try {
     if(animating) return;
@@ -141,6 +149,7 @@ function selectAll(){
   }
 }
 
+// Events
 function onClickBack() {
 //   frmHome.segment.isVisible = true;
 
@@ -292,6 +301,7 @@ function onSelectionCheckBox() {
     kony.print(e);
   }
 }
+
 function onClickOfCreateNewGroup() {
   reset();
   frmHome.mainOverlay.opacity = 0;
@@ -320,13 +330,4 @@ function saveGroup() {
 }
 function handleTextChange(){
   frmHome.lblInvalidGroupName.isVisible = !frmHome.tbxNewGroup.text ||  frmHome.tbxNewGroup.text==="";
-}
-
-function shake(element) {
-  if(!element) return;
-  animate(element, {centerX: "48%"}, 0.1);
-  animate(element, {centerX: "52%"}, 0.1);
-  animate(element, {centerX: "48%"}, 0.1);
-  animate(element, {centerX: "52%"}, 0.1);
-  animate(element, {centerX: "50%"}, 0.1);
 }

@@ -1,9 +1,12 @@
 function homePreshow() {
   frmHome.btn.shadowDepth = 5;
+  frmHome.flxAddQuickNote.shadowDepth = 7;  
+  frmHome.btnCancelQuickNote.onClick = dismissQuickNote;
+  frmHome.btnAddQuickNote.onClick = saveQuickNote;
   
   frmHome.mainOverlay.shadowDepth = 6;
   frmHome.flxCreateNewGroup.shadowDepth = 7;
-  frmHome.mainOverlay.onClick = dismissCreateNewGroup;
+  frmHome.mainOverlay.onClick = function(){};//dismissCreateNewGroup;
   frmHome.flxCreateNewGroup.onTouchStart = function(){};
   frmHome.cancelGroup.onClick = dismissCreateNewGroup;
   frmHome.saveGroup.onClick = saveGroup;
@@ -245,7 +248,7 @@ function addContact() {
     "isVisible": true,
     "left": "0dp",
     "skin": "CopyslLabel0ha910e7e6b4d46",
-    "text": "3rd July, Thurday 3PM",
+    "text": "No Follow Ups",
     "textStyle": {
       "letterSpacing": 0,
       "strikeThrough": false
@@ -394,10 +397,6 @@ function addContact() {
   frmHome.flxDashboardContent.add(flxContactRow);
   frmHome.flxNoContacts.isVisible = false;
 }
-function addNote() {
-  var card = "flxContactRow" + this.id.split("flxAddNote")[1];
-  alert("Add Note " +  card);
-}
 function deleteContact() {
   var card = "flxContactRow" + this.id.split("flxDelete")[1];
   //alert("Delete Card " +  card);
@@ -405,4 +404,25 @@ function deleteContact() {
     frmHome.flxDashboardContent.remove(frmHome[card]);
     frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
   });
+}
+
+function addNote() {
+  var card = "flxContactRow" + this.id.split("flxAddNote")[1];
+  //alert("Add Note " +  card);
+  frmHome.mainOverlay.opacity = 0;
+  frmHome.mainOverlay.isVisible = true;
+  animate(frmHome.mainOverlay, {opacity: 1}, 0.5);
+  frmHome.flxAddQuickNote.width = "0%";
+  frmHome.flxAddQuickNote.height = "0%";
+  frmHome.flxAddQuickNote.isVisible = true;
+  animate(frmHome.flxAddQuickNote, {height: "30%", width: "80%"}, 0.5, function(){
+    frmHome.txtNote.setFocus(true);
+  });
+}
+function saveQuickNote() {
+  alert("save note > " + frmHome.txtNote.text);
+}
+function dismissQuickNote() {
+  animate(frmHome.flxAddQuickNote, {height: "0%", width: "0%"}, 0.5, function(){this.isVisible = false;});
+  animate(frmHome.mainOverlay, {opacity: 0}, 0.5, function(){ this.isVisible = false;});
 }

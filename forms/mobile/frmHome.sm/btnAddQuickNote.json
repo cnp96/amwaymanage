@@ -40,13 +40,13 @@
         "focusSkin": "s9a2a76d68f84f9f8c4e64103635cc36"
     },
     "displaytext": true,
-    "id": "saveGroup",
-    "ide_onClick": "AS_Button_ea960b2a706342f38eb97fe9e3efeae9",
+    "id": "btnAddQuickNote",
+    "ide_onClick": "AS_Button_b494357310514e1da453471c91705f6c",
     "info": null,
     "isvisible": true,
-    "kuid": "a9f65495fb0c4d2289ce5bcee109d607",
+    "kuid": "fd76cf6546ce46c9b2b431f9803f9647",
     "name": "kony.ui.Button",
-    "parent": "flxCNGActions",
+    "parent": "CopyflxCNGActions0deed36563ee44c",
     "pf": "frmHome",
     "wType": "Button",
     "zindex": 5

@@ -45,6 +45,7 @@
         "flxDashboard",
         "mainOverlay",
         "flxCreateNewGroup",
+        "flxAddQuickNote",
         "flxNotification"
     ],
     "clipbounds": true,

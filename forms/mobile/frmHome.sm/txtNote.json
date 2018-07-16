@@ -1,0 +1,71 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizTextArea2",
+    "DNDConfig": null,
+    "__parentReadjusting__": false,
+    "_height_": {
+        "type": "string",
+        "value": "80%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "16dp"
+    },
+    "_margin_": [
+        2,
+        2,
+        2,
+        2
+    ],
+    "_padding_": [
+        2,
+        2,
+        2,
+        2
+    ],
+    "_placeholder_": "Enter note",
+    "_skin_": "s5b1212eb6774826870d359287be2c24",
+    "_text_": "",
+    "_top_": {
+        "type": "string",
+        "value": "11dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "90%"
+    },
+    "android": {
+        "psp": {
+            "placeholderSkin": "s05380cdbc7e49d4a36f6051e327ed05"
+        }
+    },
+    "autocapitalize": "none",
+    "autocomplete": false,
+    "autocorrect": false,
+    "autofilter": false,
+    "canUpdateUI": true,
+    "closebuttontext": "",
+    "containerheight": "",
+    "containerheightmode": 1,
+    "containerweight": 100,
+    "contentalignment": 1,
+    "focusskin": "s5b1212eb6774826870d359287be2c24",
+    "id": "txtNote",
+    "info": null,
+    "isvisible": true,
+    "keyboardstyle": "A",
+    "keyboardtype": "A",
+    "kuid": "c31cd0cb0177457cafa566821b6bd1c4",
+    "mode": "A",
+    "name": "kony.ui.TextArea2",
+    "numberofvisiblelines": 3,
+    "parent": "FlexContainer0f88d034188d44a",
+    "pf": "frmHome",
+    "placeholderskin": "s05380cdbc7e49d4a36f6051e327ed05",
+    "securetextentry": false,
+    "showoprogressindicator": false,
+    "showprogressindicator": false,
+    "textinputmode": "A",
+    "viewtype": "default",
+    "wType": "TextArea",
+    "zindex": 1
+}

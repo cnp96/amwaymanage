@@ -9,7 +9,7 @@
     },
     "_left_": {
         "type": "string",
-        "value": "15%"
+        "value": "10%"
     },
     "_margin_": [
         6,
@@ -23,13 +23,21 @@
         0,
         0
     ],
-    "_skin_": "se8c674e829f4daa95ea271d53c83d85",
-    "_text_": "Save",
+    "_skin_": "sca144671be241d09095e56e2c83ebe2",
+    "_text_": "Cancel",
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
     "_width_": {
         "type": "ref",
         "value": "preferred"
     },
     "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "32%"
+    },
     "centery": {
         "type": "string",
         "value": "50%"
@@ -40,13 +48,13 @@
         "focusSkin": "s9a2a76d68f84f9f8c4e64103635cc36"
     },
     "displaytext": true,
-    "id": "saveGroup",
-    "ide_onClick": "AS_Button_ea960b2a706342f38eb97fe9e3efeae9",
+    "id": "btnCancelQuickNote",
+    "ide_onClick": "AS_Button_d20b38ba5fc14c88aa946db3a6e8c9ae",
     "info": null,
     "isvisible": true,
-    "kuid": "a9f65495fb0c4d2289ce5bcee109d607",
+    "kuid": "d217e3ce5279483baf957d4c857e13f9",
     "name": "kony.ui.Button",
-    "parent": "flxCNGActions",
+    "parent": "CopyflxCNGActions0deed36563ee44c",
     "pf": "frmHome",
     "wType": "Button",
     "zindex": 5
