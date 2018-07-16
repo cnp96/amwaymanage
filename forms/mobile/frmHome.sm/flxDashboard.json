@@ -38,7 +38,8 @@
     "children": [
         "flxDashboardAction",
         "flxSelectAll",
-        "flxDashboardContent"
+        "flxDashboardContent",
+        "flxNoContacts"
     ],
     "clipbounds": true,
     "containerweight": 100,

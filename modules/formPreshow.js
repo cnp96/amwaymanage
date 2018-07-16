@@ -16,6 +16,7 @@ function homePreshow() {
   frmHome.flxContents.shadowDepth = 3;
   frmHome.flxAction.shadowDepth = 3;
   frmHome.flxNavbar.shadowDepth = 5;
+  frmHome.flxNotification.shadowDepth = 6;
   
   var data = [
     {img: "group.png", lblName: "Manage Groups"},
@@ -26,7 +27,8 @@ function homePreshow() {
   frmHome.segment.setData(data);
   
   frmHome.flxDashboardContent.removeAll();
-  for(var i=0; i<10; i++) {
+  frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
+  for(var i=0; i<3; i++) {
     addContact();
   }
   
@@ -390,4 +392,17 @@ function addContact() {
   flxContactRow.add(flxSelection, flxContactCard, flxActions);
 
   frmHome.flxDashboardContent.add(flxContactRow);
+  frmHome.flxNoContacts.isVisible = false;
+}
+function addNote() {
+  var card = "flxContactRow" + this.id.split("flxAddNote")[1];
+  alert("Add Note " +  card);
+}
+function deleteContact() {
+  var card = "flxContactRow" + this.id.split("flxDelete")[1];
+  //alert("Delete Card " +  card);
+  animate(frmHome[card], {height: "0%"}, 0.2, function() {
+    frmHome.flxDashboardContent.remove(frmHome[card]);
+    frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
+  });
 }

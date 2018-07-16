@@ -9,7 +9,7 @@
     },
     "_left_": {
         "type": "string",
-        "value": "0dp"
+        "value": "131dp"
     },
     "_margin_": [
         1,
@@ -23,8 +23,12 @@
         0,
         0
     ],
-    "_skin_": "sb110d3aeb3d4e48b077d118043868c3",
-    "_text_": "John Doe",
+    "_skin_": "s9b47154187b42e4bf82d1ce01f36906",
+    "_text_": "No contacts to display",
+    "_top_": {
+        "type": "string",
+        "value": "181dp"
+    },
     "_width_": {
         "type": "ref",
         "value": "preferred"
@@ -37,13 +41,17 @@
         }
     },
     "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
     "centery": {
         "type": "string",
-        "value": "43.78%"
+        "value": "50%"
     },
     "containerweight": 100,
     "contentalignment": 5,
-    "id": "CopylblUsername0ca03f8070bdb40",
+    "id": "Label0g7bc7c70bc9c46",
     "info": null,
     "ipad": {
         "psp": {
@@ -56,9 +64,9 @@
         }
     },
     "isvisible": true,
-    "kuid": "c38d4a0671e1411b80e6213ffd842750",
+    "kuid": "fb0948ed4bfa411a88c3fe11f407c3ca",
     "name": "kony.ui.Label",
-    "parent": "flxUsername2",
+    "parent": "flxNoContacts",
     "pf": "frmHome",
     "tooltip": "",
     "wType": "Label",

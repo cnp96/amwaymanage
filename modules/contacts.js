@@ -18,6 +18,9 @@ function loadContacts() {
     frmHome["flxContactCard" + i].onTouchEnd = endSwipe;
     frmHome["flxContactCard" + i].onClick = contactClicked;    
     
+    frmHome["flxAddNote"+i].onClick = addNote;
+    frmHome["flxDelete"+i].onClick = deleteContact;
+    
     frmHome["flxSelection" + i].onClick = toggleSelection;
   }
 

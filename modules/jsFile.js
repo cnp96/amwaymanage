@@ -22,6 +22,16 @@ function animate( element, params, duration, callback, delay, count ){
       "animationEnd": callback
     });
 }
+function notify(msg) {
+  frmHome.lblNotification.text = msg;
+  frmHome.flxNotification.bottom = "-50dp";
+  frmHome.flxNotification.isVisible = true;  
+  animate(frmHome.flxNotification, {bottom: "0dp"}, 0.2, function() {
+    animate(this, {bottom: "-50dp"}, 0.2, function(){
+      this.isVisible = false;
+    }, 1.5);
+  });
+}
 
 function animation() {
   try { 
@@ -152,7 +162,11 @@ function onSegmentRowClick() {
       alert("To be implemented");
     }
     else if(selectedIndex === 1) {
-      onClickOfAddToGroup();
+      if(frmHome.flxDashboardContent.widgets().length === 0) {
+        //alert("No contacts");        
+        notify("No contacts to add.");
+      }
+      else onClickOfAddToGroup();
     }
     else if(selectedIndex === 2) {
       onClickOfCreateNewGroup();

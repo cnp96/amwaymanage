@@ -2,9 +2,9 @@
     "DNDConfig": null,
     "__markedForDelete__": true,
     "__parentReadjusting__": false,
-    "_height_": {
+    "_bottom_": {
         "type": "string",
-        "value": "30%"
+        "value": "0dp"
     },
     "_left_": {
         "type": "string",
@@ -24,10 +24,10 @@
         0
     ],
     "_percent_": true,
-    "_skin_": "s4cb30a2b1b64476afdb18f08cb56ac0",
+    "_skin_": "s0a1778844d446c7a6381a49bf407bbc",
     "_top_": {
         "type": "string",
-        "value": "0dp"
+        "value": "50dp"
     },
     "_width_": {
         "type": "string",
@@ -37,18 +37,18 @@
     "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
-        "CopylblMobile0a7331d095b074d"
+        "Label0g7bc7c70bc9c46"
     ],
     "clipbounds": true,
     "containerweight": 100,
     "enablescrolling": true,
-    "id": "flxMobile2",
+    "id": "flxNoContacts",
     "info": null,
-    "isvisible": true,
-    "kuid": "f74357858b0a42c9a11bc0b1544ecf59",
+    "isvisible": false,
+    "kuid": "f26bcd1bb5b44f56bbf1c6d598e3198b",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
-    "parent": "flxUser2",
+    "parent": "flxDashboard",
     "pf": "frmHome",
     "snapgridsize": 10,
     "snaptogrid": true,

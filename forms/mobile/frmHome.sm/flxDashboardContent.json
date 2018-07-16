@@ -39,8 +39,7 @@
     "bounces": true,
     "canUpdateUI": true,
     "children": [
-        "flxContactRow1",
-        "flxContactRow2"
+        "flxContactRow1"
     ],
     "clipbounds": true,
     "containerweight": 100,
