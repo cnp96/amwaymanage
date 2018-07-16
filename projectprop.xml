@@ -117,7 +117,7 @@
     <attributes name="wp10pfxkey" value=""/>
     <attributes name="ACCESS_CHECKIN_PROPERTIES" value="false"/>
     <attributes name="MOUNT_FORMAT_FILESYSTEMS" value="false"/>
-    <attributes name="lastmodifiedtime" value="1531689856718"/>
+    <attributes name="lastmodifiedtime" value="1531773813845"/>
     <attributes name="hybridhttpsportkey" value=""/>
     <attributes name="wp10microphone" value="false"/>
     <attributes name="ID_REQ_NFC" value="false"/>
@@ -287,8 +287,8 @@
     <attributes name="wp8packagepublisherkey" value="Kony"/>
     <attributes name="WP8_ID_CAP_PHONEDIALER" value="true"/>
     <attributes name="bb10urlscheme" value=""/>
-    <attributes name="apppackagekey" value="com.orgname.Amway"/>
-    <attributes name="andtargetsdkkey" value="4.0"/>
+    <attributes name="apppackagekey" value="com.amway.manage"/>
+    <attributes name="andtargetsdkkey" value="7.0"/>
     <attributes name="win8bgagentclassname" value=""/>
     <attributes name="wp81sdescriptionkey" value="Sample Test Application"/>
     <attributes name="appversionkey" value="1.0.0"/>
@@ -391,7 +391,7 @@
     <attributes name="tcandroid480basefontsize" value="16"/>
     <attributes name="WRITE_SETTINGS" value="false"/>
     <attributes name="statusBarHidden" value="false"/>
-    <attributes name="andmaxsdkkey" value="None"/>
+    <attributes name="andmaxsdkkey" value="7.0"/>
     <attributes name="wp10chat" value="false"/>
     <attributes name="wp10internetClient" value="false"/>
     <attributes name="thinwebcontextkey" value=""/>

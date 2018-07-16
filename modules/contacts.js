@@ -1,5 +1,5 @@
 function loadContacts() {
-  var data = [{
+  /*var data = [{
     flxContactCard: {shadowDepth: 2},
     "imgUser": "dummy.jpg",
     "imgUsertype": "cardblue.png",
@@ -9,9 +9,10 @@ function loadContacts() {
     "lblMobile": "869-995-8048",
     "lblReminder": "3rd July Thurday 3PM",
     "lblUsername": "John Doe"
-  }];
+  }];*/
 
-  for(var i=1; i<3; i++) {
+  var n = frmHome.flxDashboardContent.widgets().length+1;
+  for(var i=1; i<n; i++) {
     frmHome["flxContactCard" + i].onTouchStart = startSwipe;
     frmHome["flxContactCard" + i].onTouchMove = moveSwipe;
     frmHome["flxContactCard" + i].onTouchEnd = endSwipe;
