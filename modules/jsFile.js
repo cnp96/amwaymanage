@@ -1,11 +1,12 @@
 var selectedGroupsData = [];
 var selectedFiltersData = [];
 
-function animate( element, params, duration, callback, delay ){
+function animate( element, params, duration, callback, delay, count ){
   kony.print("[Parthu]Element in animate method::"+element);
   duration = duration || 0.25;
   callback = callback || null;
   delay = delay || 0;
+  count = count || 1;
   params.stepConfig = {
     "timingFunction": kony.anim.EASE
   };
@@ -14,7 +15,7 @@ function animate( element, params, duration, callback, delay ){
       "100": params,
     }), {
       "delay": delay,
-      "iterationCount": 1,
+      "iterationCount": count,
       "fillMode": kony.anim.FILL_MODE_FORWARDS,
       "duration": duration
     }, {
@@ -62,29 +63,6 @@ function reset() {
       "rectified": true,
       "transform": trans
     }, 0.35, function() { animating = false; });
-  }
-  catch(e) {
-    kony.print(e);
-  }
-}
-
-function onClickApply() {
-  try {
-    reset();
-    if(frmHome.segment.selectedRowIndex[1] == 1) {
-      selectedGroupsData = frmHome.checkBox.selectedKeys || [];
-    }
-    else if(frmHome.segment.selectedRowIndex[1] == 3) {
-      selectedFiltersData = frmHome.checkBox.selectedKeys || [];
-    }
-
-    var sel = [];
-    if(frmHome.checkBox.selectedKeyValues)
-      frmHome.checkBox.selectedKeyValues.forEach( (i => sel.push(i[1])) );
-
-    if(frmHome.segment.selectedRowIndex[1] == 1) showSelection(sel.length > 0);
-    else applyFilters();
-
   }
   catch(e) {
     kony.print(e);
@@ -177,7 +155,7 @@ function onSegmentRowClick() {
       onClickOfAddToGroup();
     }
     else if(selectedIndex === 2) {
-      alert("To be implemented");
+      onClickOfCreateNewGroup();
     }
     else if(selectedIndex === 3) {
       onClickOffilters();
@@ -270,6 +248,28 @@ function onClickClear() {
     kony.print(e);
   }
 }
+function onClickApply() {
+  try {
+    reset();
+    if(frmHome.segment.selectedRowIndex[1] == 1) {
+      selectedGroupsData = frmHome.checkBox.selectedKeys || [];
+    }
+    else if(frmHome.segment.selectedRowIndex[1] == 3) {
+      selectedFiltersData = frmHome.checkBox.selectedKeys || [];
+    }
+
+    var sel = [];
+    if(frmHome.checkBox.selectedKeyValues)
+      frmHome.checkBox.selectedKeyValues.forEach( (i => sel.push(i[1])) );
+
+    if(frmHome.segment.selectedRowIndex[1] == 1) showSelection(sel.length > 0);
+    else applyFilters();
+
+  }
+  catch(e) {
+    kony.print(e);
+  }
+}
 function onSelectionCheckBox() {
   try {
     frmHome.btnClear.text = frmHome.checkBox.selectedKeys ? frmHome.checkBox.selectedKeys.length > 0 ? "Clear Selections" : "Tap To Select" : "Tap To Select";
@@ -277,4 +277,42 @@ function onSelectionCheckBox() {
   catch(e) {
     kony.print(e);
   }
+}
+function onClickOfCreateNewGroup() {
+  reset();
+  frmHome.mainOverlay.opacity = 0;
+  frmHome.mainOverlay.isVisible = true;
+  animate(frmHome.mainOverlay, {opacity: 1}, 0.5);
+  frmHome.flxCreateNewGroup.width = "0%";
+  frmHome.flxCreateNewGroup.height = "0%";
+  frmHome.flxCreateNewGroup.isVisible = true;
+  frmHome.lblInvalidGroupName.isVisible = false;
+  animate(frmHome.flxCreateNewGroup, {height: "27%", width: "70%"}, 0.5, function(){
+    frmHome.tbxNewGroup.setFocus(true);
+  });
+}
+function dismissCreateNewGroup() {
+  animate(frmHome.flxCreateNewGroup, {height: "0%", width: "0%"}, 0.5, function(){this.isVisible = false;});
+  animate(frmHome.mainOverlay, {opacity: 0}, 0.5, function(){ this.isVisible = false;});
+}
+function saveGroup() {
+  if(!frmHome.tbxNewGroup.text || frmHome.tbxNewGroup.text === "") {
+    frmHome.lblInvalidGroupName.isVisible = true;
+    shake(frmHome.flxCreateNewGroup);
+    return;
+  }
+  frmHome.lblInvalidGroupName.isVisible = false;
+  alert("create new group \"" + frmHome.tbxNewGroup.text + "\"");
+}
+function handleTextChange(){
+  frmHome.lblInvalidGroupName.isVisible = !frmHome.tbxNewGroup.text ||  frmHome.tbxNewGroup.text==="";
+}
+
+function shake(element) {
+  if(!element) return;
+  animate(element, {centerX: "48%"}, 0.1);
+  animate(element, {centerX: "52%"}, 0.1);
+  animate(element, {centerX: "48%"}, 0.1);
+  animate(element, {centerX: "52%"}, 0.1);
+  animate(element, {centerX: "50%"}, 0.1);
 }

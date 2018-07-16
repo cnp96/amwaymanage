@@ -3,7 +3,7 @@
     "__parentReadjusting__": false,
     "_height_": {
         "type": "string",
-        "value": "100%"
+        "value": "40dp"
     },
     "_left_": {
         "type": "string",
@@ -23,39 +23,37 @@
         0
     ],
     "_percent_": true,
-    "_skin_": "s83af10c6dbf47788ecefd5401507e94",
+    "_skin_": "sbddeda04b55437994b7b3de947248eb",
     "_top_": {
         "type": "string",
-        "value": "0dp"
+        "value": "10%"
     },
     "_width_": {
         "type": "string",
-        "value": "100%"
+        "value": "70%"
     },
     "allboxes": [],
     "autogrowmode": 0,
     "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
     "children": [
-        "flxContents",
-        "flxAction",
-        "helpOverlay",
-        "btn",
-        "flxNavbar",
-        "flxTopbar",
-        "flxDashboard",
-        "mainOverlay",
-        "flxCreateNewGroup"
+        "Image0e85fcd768d5c46",
+        "FlexContainer0ffccc04092b545",
+        "tbxNewGroup"
     ],
     "clipbounds": true,
     "containerweight": 100,
     "enablescrolling": true,
-    "id": "flxHome",
+    "id": "flxCNGInputWrapper",
     "info": null,
     "isvisible": true,
-    "kuid": "e2d0277cbe8f407ab94a91904274d197",
+    "kuid": "f5f7a28661b94d39a4857e3c14394a29",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
-    "parent": "frmHome",
+    "parent": "flxCNGWrapper",
     "pf": "frmHome",
     "snapgridsize": 10,
     "snaptogrid": true,

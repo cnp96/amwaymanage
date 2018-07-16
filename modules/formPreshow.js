@@ -1,5 +1,14 @@
 function homePreshow() {
   frmHome.btn.shadowDepth = 5;
+  
+  frmHome.mainOverlay.shadowDepth = 6;
+  frmHome.flxCreateNewGroup.shadowDepth = 7;
+  frmHome.mainOverlay.onClick = dismissCreateNewGroup;
+  frmHome.flxCreateNewGroup.onTouchStart = function(){};
+  frmHome.cancelGroup.onClick = dismissCreateNewGroup;
+  frmHome.saveGroup.onClick = saveGroup;
+  frmHome.tbxNewGroup.onTextChange = handleTextChange;
+  
   frmHome.btn.onClick = animation;
   frmHome.flxCancel.onClick = cancelSelection;
   frmHome.flxSelectAll.onClick = selectAll;

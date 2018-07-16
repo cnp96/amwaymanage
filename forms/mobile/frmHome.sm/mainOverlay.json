@@ -23,7 +23,7 @@
         0
     ],
     "_percent_": true,
-    "_skin_": "s83af10c6dbf47788ecefd5401507e94",
+    "_skin_": "sfd3cf70dc7a4fb4a7c0f99fadfc729a",
     "_top_": {
         "type": "string",
         "value": "0dp"
@@ -35,31 +35,21 @@
     "allboxes": [],
     "autogrowmode": 0,
     "canUpdateUI": true,
-    "children": [
-        "flxContents",
-        "flxAction",
-        "helpOverlay",
-        "btn",
-        "flxNavbar",
-        "flxTopbar",
-        "flxDashboard",
-        "mainOverlay",
-        "flxCreateNewGroup"
-    ],
+    "children": [],
     "clipbounds": true,
     "containerweight": 100,
     "enablescrolling": true,
-    "id": "flxHome",
+    "id": "mainOverlay",
     "info": null,
-    "isvisible": true,
-    "kuid": "e2d0277cbe8f407ab94a91904274d197",
+    "isvisible": false,
+    "kuid": "d36be48b93c64ab5a65483ec9ff2a09e",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
-    "parent": "frmHome",
+    "parent": "flxHome",
     "pf": "frmHome",
     "snapgridsize": 10,
     "snaptogrid": true,
     "wType": "FlexContainer",
     "widgetalignment": 1,
-    "zindex": 1
+    "zindex": 7
 }

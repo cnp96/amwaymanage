@@ -1,0 +1,63 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizTextBox2",
+    "DNDConfig": null,
+    "__markedForDelete__": true,
+    "__parentReadjusting__": false,
+    "_height_": {
+        "type": "string",
+        "value": "30dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_padding_": [
+        3,
+        0,
+        0,
+        0
+    ],
+    "_placeholder_": "Enter Group Name",
+    "_right_": {
+        "type": "string",
+        "value": "0%"
+    },
+    "_skin_": "sa52a4a503c6474abe51ca30e0939541",
+    "_text_": "",
+    "_width_": {
+        "type": "string",
+        "value": "82%"
+    },
+    "android": {},
+    "autocapitalize": "none",
+    "autocomplete": false,
+    "autocorrect": false,
+    "autofilter": false,
+    "canUpdateUI": true,
+    "centery": {
+        "type": "string",
+        "value": "50%"
+    },
+    "containerheight": "",
+    "containerheightmode": 1,
+    "containerweight": 100,
+    "contentalignment": 4,
+    "focusskin": "sa52a4a503c6474abe51ca30e0939541",
+    "id": "tbxNewGroup",
+    "info": null,
+    "isvisible": true,
+    "keyboardtype": "A",
+    "kuid": "d4180a46e67040e38f289ebd30466aaf",
+    "mode": "A",
+    "name": "kony.ui.TextBox2",
+    "parent": "flxCNGInputWrapper",
+    "pf": "frmHome",
+    "placeholderskin": "sd19b6b0fe5948afa15755db2a0a436d",
+    "securetextentry": false,
+    "textinputmode": "A",
+    "viewtype": "default",
+    "wType": "TextField",
+    "zindex": 1
+}
