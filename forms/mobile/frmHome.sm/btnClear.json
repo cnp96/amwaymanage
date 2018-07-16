@@ -21,7 +21,7 @@
     ],
     "_right_": {
         "type": "string",
-        "value": "30%"
+        "value": "27%"
     },
     "_skin_": "sca144671be241d09095e56e2c83ebe2",
     "_text_": "Tap To Select",
@@ -31,7 +31,7 @@
     },
     "_width_": {
         "type": "string",
-        "value": "90dp"
+        "value": "120dp"
     },
     "canUpdateUI": true,
     "centery": {

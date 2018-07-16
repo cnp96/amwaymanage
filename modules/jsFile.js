@@ -94,11 +94,12 @@ function onClickApply() {
 // Apply Filters
 function applyFilters() {
   var data = [];
+  try {
   if(frmHome.checkBox.selectedKeyValues)
     frmHome.checkBox.selectedKeyValues.forEach( (i => data.push(i[1])) );
-  
+  } catch(e) {} 
   frmHome.lblActionLabel.text = data.length>0 ? "Filtered Contacts" : "All Contacts";
-  alert("Data > " + data);
+  alert("Data > " + data.length);
 }
 
 // Multi Select
@@ -111,6 +112,7 @@ function showSelection(val) {
     frmHome["imgSelection"+i].src = "checkbox_inactive.png";
   }
   
+  frmHome.btn.isVisible = !val;
   frmHome.lblActionLabel.text = val ? "Add To Groups" : "All Contacts";
   frmHome.flxActionContext.isVisible = val;
   frmHome.flxSelectAll.isVisible = val;
@@ -152,12 +154,19 @@ function selectAll(){
 }
 
 function onClickBack() {
-  frmHome.segment.isVisible = true;
-  frmHome.checkBox.isVisible = false;
-  frmHome.flxAction.isVisible = false;
-  frmHome.flxContents.height = "280dp";
-}
+//   frmHome.segment.isVisible = true;
 
+//   frmHome.checkBox.isVisible = false;
+//   frmHome.flxAction.isVisible = false;
+//   frmHome.flxContents.height = "280dp";
+  
+  animate(frmHome.checkBox, {width: "0%"}, 0.3, function(){this.isVisible=false;});
+  animate(frmHome.flxAction, {height: "0%"}, 0.3, function(){this.isVisible=false;});
+  frmHome.segment.left = "-100%";
+  frmHome.segment.isVisible = true;
+  animate(frmHome.segment, {left: "0%"}, 0.45);
+  
+}
 function onSegmentRowClick() {
   try {
     var selectedIndex = frmHome.segment.selectedRowIndex[1];
@@ -178,7 +187,6 @@ function onSegmentRowClick() {
     kony.print(e);
   }
 }
-
 function onClickOfAddToGroup() {
   try
   {
@@ -191,18 +199,25 @@ function onClickOfAddToGroup() {
     frmHome.checkBox.masterData = masterData;
     //frmHome.flxAction.bottom = "288dp";
     //frmHome.flxContents.height = "150dp";
-    frmHome.btnClear.text = selectedGroupsData.length > 0 ? "Clear Filters" : "Tap To Select";
+    frmHome.btnClear.text = selectedGroupsData.length > 0 ? "Clear Selections" : "Tap To Select";
     if(selectedGroupsData.length > 0)
       frmHome.checkBox.selectedKeys = selectedGroupsData;
+    
+    frmHome.flxAction.height = "0dp";
     frmHome.flxAction.isVisible = true;
+    animate(frmHome.flxAction, {height: "35dp"}, 0.5);
+    
     frmHome.segment.isVisible = false;
+    
+    frmHome.checkBox.width = "0%";
     frmHome.checkBox.isVisible = true;
+    animate(frmHome.checkBox, {width: "97%"},0.5);
+    
   }
   catch(e) {
     kony.print(e);
   }
 }
-
 function onClickOffilters() {
   try {
     var masterData = [
@@ -215,21 +230,30 @@ function onClickOffilters() {
     frmHome.checkBox.masterData = masterData;
     frmHome.flxAction.isVisible = true;
     //frmHome.flxAction.bottom = "318dp";
-//     frmHome.flxContents.height = "180dp";
-    //frmHome.flxContents.height = "preferred";
-    frmHome.btnClear.text = selectedFiltersData.length > 0 ? "Clear Filters" : "Tap To Select";
+    //frmHome.flxContents.height = "180dp";
+    frmHome.btnClear.text = selectedFiltersData.length > 0 ? "Clear Selections" : "Tap To Select";
     
     if(selectedFiltersData.length > 0)
       frmHome.checkBox.selectedKeys = selectedFiltersData;
     
+//     frmHome.segment.isVisible = false;
+//     frmHome.checkBox.isVisible = true;    
+
+    frmHome.flxAction.height = "0dp";
+    frmHome.flxAction.isVisible = true;
+    animate(frmHome.flxAction, {height: "35dp"}, 0.5);
+
     frmHome.segment.isVisible = false;
-    frmHome.checkBox.isVisible = true;    
+
+    frmHome.checkBox.width = "0%";
+    frmHome.checkBox.isVisible = true;
+    animate(frmHome.checkBox, {width: "97%"},0.5);
+
   }
   catch(e) {
     kony.print(e);
   }
 }
-
 function onClickClear() {
   try {
     frmHome.checkBox.selectedKeys=[];
@@ -246,10 +270,9 @@ function onClickClear() {
     kony.print(e);
   }
 }
-
 function onSelectionCheckBox() {
   try {
-    frmHome.btnClear.text = frmHome.checkBox.selectedKeys ? frmHome.checkBox.selectedKeys.length > 0 ? "Clear Filters" : "Tap To Select" : "Tap To Select";
+    frmHome.btnClear.text = frmHome.checkBox.selectedKeys ? frmHome.checkBox.selectedKeys.length > 0 ? "Clear Selections" : "Tap To Select" : "Tap To Select";
   }
   catch(e) {
     kony.print(e);
