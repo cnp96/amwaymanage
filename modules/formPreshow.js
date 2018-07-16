@@ -29,6 +29,13 @@ function homePreshow() {
   ];
   frmHome.segment.setData(data);
   
+  /*var data = [{
+    "imgUser": "dummy.jpg",
+    "imgUsertype": "cardblue.png",
+    "lblMobile": "869-995-8048",
+    "lblReminder": "No Follow Ups",
+    "lblUsername": "John Doe"
+  }];*/
   frmHome.flxDashboardContent.removeAll();
   frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
   for(var i=0; i<3; i++) {
@@ -407,7 +414,8 @@ function deleteContact() {
 }
 
 function addNote() {
-  var card = "flxContactRow" + this.id.split("flxAddNote")[1];
+  addNoteId = this.id.split("flxAddNote")[1];
+  var card = "flxContactRow" + addNoteId;
   //alert("Add Note " +  card);
   frmHome.mainOverlay.opacity = 0;
   frmHome.mainOverlay.isVisible = true;
@@ -420,9 +428,12 @@ function addNote() {
   });
 }
 function saveQuickNote() {
-  alert("save note > " + frmHome.txtNote.text);
+  //alert("save note > " + frmHome.txtNote.text + " for " + addNoteId);
+  dismissQuickNote();
+  notify("Saved.");
 }
 function dismissQuickNote() {
+  frmHome.txtNote.text = "";
   animate(frmHome.flxAddQuickNote, {height: "0%", width: "0%"}, 0.5, function(){this.isVisible = false;});
   animate(frmHome.mainOverlay, {opacity: 0}, 0.5, function(){ this.isVisible = false;});
 }

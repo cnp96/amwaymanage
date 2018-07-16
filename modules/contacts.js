@@ -1,16 +1,4 @@
 function loadContacts() {
-  /*var data = [{
-    flxContactCard: {shadowDepth: 2},
-    "imgUser": "dummy.jpg",
-    "imgUsertype": "cardblue.png",
-    flxActions: { shadowDepth: 2, right: "-120dp" },
-    imgAddNote: "addnote.png",
-    imgDelete: "delete.png",
-    "lblMobile": "869-995-8048",
-    "lblReminder": "3rd July Thurday 3PM",
-    "lblUsername": "John Doe"
-  }];*/
-
   var n = frmHome.flxDashboardContent.widgets().length+1;
   for(var i=1; i<n; i++) {
     frmHome["flxContactCard" + i].onTouchStart = startSwipe;
@@ -23,7 +11,6 @@ function loadContacts() {
     
     frmHome["flxSelection" + i].onClick = toggleSelection;
   }
-
 }
 
 function startSwipe(source, x, y) {
