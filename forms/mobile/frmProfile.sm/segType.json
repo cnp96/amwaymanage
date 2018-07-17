@@ -32,7 +32,7 @@
                 {
                     "lbltypelist": {
                         "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
-                        "text": "Customers and Prospects"
+                        "text": "Prospects and Customers"
                     }
                 }
             ]
@@ -124,7 +124,7 @@
     "selectedindex": null,
     "selectedindices": null,
     "selecteditems": null,
-    "selectedsectionindex": 0,
+    "selectedsectionindex": null,
     "selectionbehavior": "default",
     "separatorcolor": "61616100",
     "separatorrequired": true,
