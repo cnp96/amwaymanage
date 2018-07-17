@@ -1,6 +1,6 @@
 function frmPreShow(){
 
-
+  frmGroups.flxTopbar1.shadowDepth = 4;
   frmGroups.flxCustomer.onTouchStart = showShadow;
   frmGroups.flxProspect.onTouchStart = showShadow;
   frmGroups.flxProspectCustomer.onTouchStart = showShadow;
@@ -20,9 +20,10 @@ function frmPreShow(){
 }
 
 function deleteGroup(src){
+  var id = src.id[src.id.length-1];
   frmGroups["flxCustom"+id].height ="0";
   kony.timer.cancel("timerid");
-   var id = src.id[src.id.length-1];
+  
   for(var i =1 ;i <= 4 ;i++){
     frmGroups["flxCustom"+i].shadowDepth = 0;
     frmGroups["flxClose"+i].height = "0%";
@@ -58,7 +59,7 @@ function animateTimer(){
     var left = frmGroups["flxCustom"+i].left;
     var newleft = parseInt(left)+0.2 +"%";
     animate1(frmGroups["flxCustom"+i],{"left":newleft},0.05,animationend);
-    
+
   }
 }
 

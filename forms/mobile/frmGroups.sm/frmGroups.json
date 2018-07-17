@@ -15,7 +15,7 @@
         0
     ],
     "_percent_": true,
-    "_skin_": "sac341e541404c78ab4b4d0347de1a2e",
+    "_skin_": "s145a39e0b14413286a108f35a0c6b30",
     "_title_": null,
     "addWidgetsdone": false,
     "allboxes": [],
@@ -29,7 +29,8 @@
     "children": [
         "flxNavbar",
         "flxTopbar",
-        "flxGroups"
+        "flxGroups",
+        "flxTopbar1"
     ],
     "containerweight": 100,
     "currentLocale": "default",

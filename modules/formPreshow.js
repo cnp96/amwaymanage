@@ -1,4 +1,5 @@
 function homePreshow() {
+  frmHome.flxTopbar.shadowDepth = 4;
   frmHome.btn.shadowDepth = 5;
   frmHome.flxAddQuickNote.shadowDepth = 7;  
   frmHome.btnCancelQuickNote.onClick = dismissQuickNote;
