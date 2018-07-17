@@ -51,12 +51,12 @@ function animation() {
     frmHome.flxAction.isVisible = false;
     frmHome.helpOverlay.isVisible = true;
     var trans = kony.ui.makeAffineTransform();
-    trans.rotate(-179);
+    trans.rotate(-90);
     animating = true;
     animate(frmHome.imgPlus, {
       "rectified": true,
       "transform": trans
-    }, 0.35, function(){ animating = false; });
+    }, 0.2, function(){ animating = false; });
     animate(frmHome.flxContents, {
       "width": "62%",
       "height": "280dp"
@@ -84,7 +84,7 @@ function reset() {
     animate(frmHome.imgPlus, {
       "rectified": true,
       "transform": trans
-    }, 0.35, function() { animating = false; });
+    }, 0.2, function() { animating = false; });
   }
   catch(e) {
     kony.print(e);
