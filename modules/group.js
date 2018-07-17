@@ -1,5 +1,4 @@
 function frmPreShow(){
-
   frmGroups.flxTopbar1.shadowDepth = 4;
   frmGroups.flxCustomer.onTouchStart = showShadow;
   frmGroups.flxProspect.onTouchStart = showShadow;
@@ -9,6 +8,8 @@ function frmPreShow(){
   frmGroups.flxProspect.onTouchEnd = hideShadow;
   frmGroups.flxProspectCustomer.onTouchEnd = hideShadow;
   frmGroups.flxABO.onTouchEnd = hideShadow;
+  frmGroups.flxItem1.onClick = navigateHome;
+  frmGroups.flxItem3.onClick = navigateProfile;
   for(var i =1 ;i <= 4 ;i++){
     frmGroups["flxCustom"+i].onTouchStart = showShadow;
     frmGroups["flxCustom"+i].onTouchEnd = hideShadow1;
@@ -19,11 +20,17 @@ function frmPreShow(){
   }
 }
 
+function navigateHome(){
+  frmHome.show();  
+}
+function navigateProfile(){
+  frmProfile.show();
+}
+
 function deleteGroup(src){
   var id = src.id[src.id.length-1];
   frmGroups["flxCustom"+id].height ="0";
   kony.timer.cancel("timerid");
-  
   for(var i =1 ;i <= 4 ;i++){
     frmGroups["flxCustom"+i].shadowDepth = 0;
     frmGroups["flxClose"+i].height = "0%";
@@ -59,7 +66,6 @@ function animateTimer(){
     var left = frmGroups["flxCustom"+i].left;
     var newleft = parseInt(left)+0.2 +"%";
     animate1(frmGroups["flxCustom"+i],{"left":newleft},0.05,animationend);
-
   }
 }
 
