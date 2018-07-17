@@ -1,4 +1,6 @@
 function homePreshow() {
+  frmProfile.destroy();
+  
   frmHome.flxTopbar.shadowDepth = 4;
   frmHome.btn.shadowDepth = 5;
   frmHome.flxAddQuickNote.shadowDepth = 7;  
@@ -43,8 +45,17 @@ function homePreshow() {
   }];*/
   frmHome.flxDashboardContent.removeAll();
   
-  for(var i=0; i<AllContacts.length; i++) {
-    addContact(AllContacts[i]);
+  var contacts;
+  if(showGroup !== "") {
+    contacts = Groups[showGroup];
+    showGroup = "";
+  }
+  else {
+    contacts = AllContacts;    
+  }
+  
+  for(var i=0; i<contacts.length; i++) {
+    addContact(contacts[i]);
   }
   frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
   frmHome.lblContactsCount.text = "(" + frmHome.flxDashboardContent.widgets().length + ")";

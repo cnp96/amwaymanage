@@ -38,7 +38,7 @@
     "children": [
         "CopyimgCustom0cbf6522baf7444",
         "CopylblCustom0f6e7d2dd94eb47",
-        "CopylblCustomM0d62488c58d9448"
+        "lblProspectCount"
     ],
     "clipbounds": true,
     "containerweight": 100,

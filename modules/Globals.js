@@ -11,3 +11,4 @@ var Groups = {
 };
 var newGroupName = "";
 var longPress = false;
+var showGroup = "";

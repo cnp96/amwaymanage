@@ -37,7 +37,8 @@
     },
     "children": [
         "flxMainContent",
-        "flxPopup"
+        "flxPopup",
+        "btnSaveProfile"
     ],
     "clipbounds": true,
     "containerweight": 100,

@@ -23,7 +23,7 @@
         0
     ],
     "_skin_": "s0610b4571384134ba4f3c9d4bb3fcc5",
-    "_text_": "12 members",
+    "_text_": "2 members",
     "_width_": {
         "type": "ref",
         "value": "preferred"
@@ -42,7 +42,7 @@
     },
     "containerweight": 100,
     "contentalignment": 4,
-    "id": "CopylblCustomM0d62488c58d9448",
+    "id": "lblABOsCount",
     "info": null,
     "ipad": {
         "psp": {
@@ -55,9 +55,9 @@
         }
     },
     "isvisible": true,
-    "kuid": "e169bc01f9c64408b6ccab3d3ba8f104",
+    "kuid": "a5599d79516f4fef97305d99b51a39f8",
     "name": "kony.ui.Label",
-    "parent": "flxProspect",
+    "parent": "flxABO",
     "pf": "frmGroups",
     "tooltip": "",
     "wType": "Label",

@@ -14,25 +14,25 @@
                 {
                     "lbltypelist": {
                         "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
-                        "text": "Abo"
+                        "text": "ABOs"
                     }
                 },
                 {
                     "lbltypelist": {
                         "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
-                        "text": "Prospect"
+                        "text": "Prospects"
                     }
                 },
                 {
                     "lbltypelist": {
                         "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
-                        "text": "Customer"
+                        "text": "Customers"
                     }
                 },
                 {
                     "lbltypelist": {
                         "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
-                        "text": "Customer & Prospect"
+                        "text": "Customers and Prospects"
                     }
                 }
             ]

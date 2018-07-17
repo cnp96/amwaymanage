@@ -59,6 +59,7 @@
             "wrapping": 2
         }
     },
+    "isSegmentChild": true,
     "isvisible": true,
     "kuid": "dc0b019bb45f4805af23c7fd86cc1b0a",
     "name": "kony.ui.Label",

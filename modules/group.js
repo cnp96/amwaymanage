@@ -1,4 +1,10 @@
 function frmPreShow(){
+  
+  frmGroups.lblCustomerCount.text = Groups.Customers.length + " members";
+  frmGroups.lblProspectCount.text = Groups.Prospects.length + " members";
+  frmGroups.lblABOsCount.text = Groups.ABOs.length + " members";
+  frmGroups.lblCustomerAndProspectCount.text = Groups["Prospects and Customers"].length + " members";
+  
   frmGroups.flxTopbar1.shadowDepth = 4;
   frmGroups.flxCustomer.onTouchStart = showShadow;
   frmGroups.flxProspect.onTouchStart = showShadow;
@@ -48,6 +54,14 @@ function showShadow(src){
 
 function hideShadow(src){
   frmGroups[src.id+""].shadowDepth = 0;
+  var map = {
+    flxCustomer: "Customers",
+    flxProspect: "Prospects",
+    flxProspectCustomer: "Prospects and Customers",
+    flxABO: "ABOs"
+  };
+  showGroup = map[src.id+""];
+  frmHome.show();
 }
 
 function hideShadow1(src){
