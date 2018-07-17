@@ -30,9 +30,8 @@ function homePreshow() {
   ];
   frmHome.segment.setData(data);
   
-  frmHome.flxItem2.onClick = function() {
-    frmProfile.show();
-  };
+  frmHome.flxItem2.onClick = function() { frmGroups.show(); };
+  frmHome.flxItem3.onClick = function() { frmProfile.show(); };
   
   
   /*var data = [{
