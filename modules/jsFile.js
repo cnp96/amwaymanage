@@ -66,12 +66,13 @@ function animation() {
 function reset() {
   try {
     if(animating) return;
-    frmHome.helpOverlay.isVisible = false;
-    frmHome.flxAction.isVisible = false;    
     frmHome.segment.isVisible = false;
     frmHome.checkBox.isVisible = false;
-    frmHome.flxContents.height = "0dp";
-    frmHome.flxContents.width = "0dp";    
+    frmHome.flxAction.isVisible = false;
+    
+    animate(frmHome.flxContents, {height: "0dp", width: "0dp"}, null, function(){
+      frmHome.helpOverlay.isVisible = false;
+    });
     
     var trans = kony.ui.makeAffineTransform();
     trans.rotate(0);
@@ -104,7 +105,7 @@ function showSelection(val) {
   var n = frmHome.flxDashboardContent.widgets().length + 1;
   var left = val ? "50dp" : "0dp";  
   for(var i=1; i<n; i++) {
-    frmHome["flxContactCard"+i].left = left;
+    animate(frmHome["flxContactCard"+i], {left: left}, 0.1);
     frmHome["imgSelection"+i].src = "checkbox_inactive.png";
   }
   
@@ -151,17 +152,11 @@ function selectAll(){
 
 // Events
 function onClickBack() {
-//   frmHome.segment.isVisible = true;
-
-//   frmHome.checkBox.isVisible = false;
-//   frmHome.flxAction.isVisible = false;
-//   frmHome.flxContents.height = "280dp";
-  
-  animate(frmHome.checkBox, {width: "0%"}, 0.3, function(){this.isVisible=false;});
-  animate(frmHome.flxAction, {height: "0%"}, 0.3, function(){this.isVisible=false;});
+  animate(frmHome.checkBox, {centerX: "153%"}, 0.2, function(){this.isVisible=false;});
+  animate(frmHome.flxAction, {height: "0%"}, 0.2, function(){this.isVisible=false;});
   frmHome.segment.left = "-100%";
   frmHome.segment.isVisible = true;
-  animate(frmHome.segment, {left: "0%"}, 0.45);
+  animate(frmHome.segment, {left: "0%"}, 0.3);
   
 }
 function onSegmentRowClick() {
@@ -198,21 +193,19 @@ function onClickOfAddToGroup() {
       ["Key4","ABOs"],
     ];
     frmHome.checkBox.masterData = masterData;
-    //frmHome.flxAction.bottom = "288dp";
-    //frmHome.flxContents.height = "150dp";
     frmHome.btnClear.text = selectedGroupsData.length > 0 ? "Clear Selections" : "Tap To Select";
     if(selectedGroupsData.length > 0)
       frmHome.checkBox.selectedKeys = selectedGroupsData;
     
     frmHome.flxAction.height = "0dp";
     frmHome.flxAction.isVisible = true;
-    animate(frmHome.flxAction, {height: "35dp"}, 0.5);
-    
+    animate(frmHome.flxAction, {height: "35dp"}, 0.2);
+
     frmHome.segment.isVisible = false;
-    
-    frmHome.checkBox.width = "0%";
+
+    frmHome.checkBox.centerX = "153%";
     frmHome.checkBox.isVisible = true;
-    animate(frmHome.checkBox, {width: "97%"},0.5);
+    animate(frmHome.checkBox, {centerX: "53%"},0.2);
     
   }
   catch(e) {
@@ -230,25 +223,20 @@ function onClickOffilters() {
     ];
     frmHome.checkBox.masterData = masterData;
     frmHome.flxAction.isVisible = true;
-    //frmHome.flxAction.bottom = "318dp";
-    //frmHome.flxContents.height = "180dp";
     frmHome.btnClear.text = selectedFiltersData.length > 0 ? "Clear Selections" : "Tap To Select";
     
     if(selectedFiltersData.length > 0)
       frmHome.checkBox.selectedKeys = selectedFiltersData;
-    
-//     frmHome.segment.isVisible = false;
-//     frmHome.checkBox.isVisible = true;    
 
     frmHome.flxAction.height = "0dp";
     frmHome.flxAction.isVisible = true;
-    animate(frmHome.flxAction, {height: "35dp"}, 0.5);
+    animate(frmHome.flxAction, {height: "35dp"}, 0.2);
 
     frmHome.segment.isVisible = false;
 
-    frmHome.checkBox.width = "0%";
+    frmHome.checkBox.centerX = "153%";
     frmHome.checkBox.isVisible = true;
-    animate(frmHome.checkBox, {width: "97%"},0.5);
+    animate(frmHome.checkBox, {centerX: "53%"},0.2);
 
   }
   catch(e) {
@@ -306,18 +294,18 @@ function onClickOfCreateNewGroup() {
   reset();
   frmHome.mainOverlay.opacity = 0;
   frmHome.mainOverlay.isVisible = true;
-  animate(frmHome.mainOverlay, {opacity: 1}, 0.5);
+  animate(frmHome.mainOverlay, {opacity: 1}, 0.3);
   frmHome.flxCreateNewGroup.width = "0%";
   frmHome.flxCreateNewGroup.height = "0%";
   frmHome.flxCreateNewGroup.isVisible = true;
   frmHome.lblInvalidGroupName.isVisible = false;
-  animate(frmHome.flxCreateNewGroup, {height: "27%", width: "70%"}, 0.5, function(){
+  animate(frmHome.flxCreateNewGroup, {height: "27%", width: "70%"}, 0.3, function(){
     frmHome.tbxNewGroup.setFocus(true);
   });
 }
 function dismissCreateNewGroup() {
-  animate(frmHome.flxCreateNewGroup, {height: "0%", width: "0%"}, 0.5, function(){this.isVisible = false;});
-  animate(frmHome.mainOverlay, {opacity: 0}, 0.5, function(){ this.isVisible = false;});
+  animate(frmHome.flxCreateNewGroup, {height: "0%", width: "0%"}, 0.3, function(){this.isVisible = false;});
+  animate(frmHome.mainOverlay, {opacity: 0}, 0.3, function(){ this.isVisible = false;});
 }
 function saveGroup() {
   if(!frmHome.tbxNewGroup.text || frmHome.tbxNewGroup.text === "") {

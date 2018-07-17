@@ -30,6 +30,11 @@ function homePreshow() {
   ];
   frmHome.segment.setData(data);
   
+  frmHome.flxItem2.onClick = function() {
+    frmProfile.show();
+  };
+  
+  
   /*var data = [{
     "imgUser": "dummy.jpg",
     "imgUsertype": "cardblue.png",
@@ -420,11 +425,11 @@ function addNote() {
   //alert("Add Note " +  card);
   frmHome.mainOverlay.opacity = 0;
   frmHome.mainOverlay.isVisible = true;
-  animate(frmHome.mainOverlay, {opacity: 1}, 0.5);
+  animate(frmHome.mainOverlay, {opacity: 1}, 0.3);
   frmHome.flxAddQuickNote.width = "0%";
   frmHome.flxAddQuickNote.height = "0%";
   frmHome.flxAddQuickNote.isVisible = true;
-  animate(frmHome.flxAddQuickNote, {height: "30%", width: "80%"}, 0.5, function(){
+  animate(frmHome.flxAddQuickNote, {height: "30%", width: "80%"}, 0.3, function(){
     frmHome.txtNote.setFocus(true);
   });
 }
@@ -435,6 +440,6 @@ function saveQuickNote() {
 }
 function dismissQuickNote() {
   frmHome.txtNote.text = "";
-  animate(frmHome.flxAddQuickNote, {height: "0%", width: "0%"}, 0.5, function(){this.isVisible = false;});
-  animate(frmHome.mainOverlay, {opacity: 0}, 0.5, function(){ this.isVisible = false;});
+  animate(frmHome.flxAddQuickNote, {height: "0%", width: "0%"}, 0.3, function(){this.isVisible = false;});
+  animate(frmHome.mainOverlay, {opacity: 0}, 0.3, function(){ this.isVisible = false;});
 }
