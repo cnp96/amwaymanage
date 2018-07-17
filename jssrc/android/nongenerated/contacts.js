@@ -1,25 +1,12 @@
 function loadContacts() {
-    var data = [{
-        flxContactCard: {
-            shadowDepth: 2
-        },
-        "imgUser": "dummy.jpg",
-        "imgUsertype": "cardblue.png",
-        flxActions: {
-            shadowDepth: 2,
-            right: "-120dp"
-        },
-        imgAddNote: "addnote.png",
-        imgDelete: "delete.png",
-        "lblMobile": "869-995-8048",
-        "lblReminder": "3rd July Thurday 3PM",
-        "lblUsername": "John Doe"
-    }];
-    for (var i = 1; i < 3; i++) {
+    var n = frmHome.flxDashboardContent.widgets().length + 1;
+    for (var i = 1; i < n; i++) {
         frmHome["flxContactCard" + i].onTouchStart = startSwipe;
         frmHome["flxContactCard" + i].onTouchMove = moveSwipe;
         frmHome["flxContactCard" + i].onTouchEnd = endSwipe;
         frmHome["flxContactCard" + i].onClick = contactClicked;
+        frmHome["flxAddNote" + i].onClick = addNote;
+        frmHome["flxDelete" + i].onClick = deleteContact;
         frmHome["flxSelection" + i].onClick = toggleSelection;
     }
 }

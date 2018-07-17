@@ -7,10 +7,6 @@
         "type": "ref",
         "value": "preferred"
     },
-    "_left_": {
-        "type": "string",
-        "value": "131dp"
-    },
     "_margin_": [
         1,
         1,
@@ -25,10 +21,6 @@
     ],
     "_skin_": "s9b47154187b42e4bf82d1ce01f36906",
     "_text_": "No contacts to display",
-    "_top_": {
-        "type": "string",
-        "value": "181dp"
-    },
     "_width_": {
         "type": "ref",
         "value": "preferred"

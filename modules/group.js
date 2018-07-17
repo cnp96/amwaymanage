@@ -30,7 +30,10 @@ function navigateProfile(){
 function deleteGroup(src){
   var id = src.id[src.id.length-1];
   frmGroups["flxCustom"+id].height ="0";
-  kony.timer.cancel("timerid");
+  try {
+    kony.timer.cancel("timerid");
+  } catch(e) {}
+  
   for(var i =1 ;i <= 4 ;i++){
     frmGroups["flxCustom"+i].shadowDepth = 0;
     frmGroups["flxClose"+i].height = "0%";
@@ -56,45 +59,24 @@ function callBack(widget , info){
   longPress = true;
   for(var i =1 ;i <= 4 ;i++){
     frmGroups["flxCustom"+i].shadowDepth = 5;
-    animate1(frmGroups["flxClose"+i],{"width":"16%", "height":"18%"},0.5);
+    animate(frmGroups["flxClose"+i],{"width":"16%", "height":"18%"},0.5);
   }
-  kony.timer.schedule("timerid", animateTimer, 0.1, true);
+  try {
+    kony.timer.cancel("timerid");
+  } catch(e){}
+  kony.timer.schedule("timerid", animateTimer, 0.14, true);
+  
 }
 
 function animateTimer(){
   for(var i =1 ;i <= 4 ;i++){
-    var left = frmGroups["flxCustom"+i].left;
-    var newleft = parseInt(left)+0.2 +"%";
-    animate1(frmGroups["flxCustom"+i],{"left":newleft},0.05,animationend);
+    shakeLeft(frmGroups["flxCustom"+i]);
   }
 }
 
-function animationend(){
-  for(var i =1 ;i <= 4 ;i++){
-    var left = frmGroups["flxCustom"+i].left;
-    var newleft = parseInt(left) +"%";
-    animate1(frmGroups["flxCustom"+i],{"left":newleft},0.05);
-  }
-
-}
-
-function animate1( element,params, duration, callback, delay ){
-  duration = duration || 0.25;
-  callback = callback || null;
-  delay = delay || 0;
-  params.stepConfig = {
-    "timingFunction": kony.anim.EASE
-  };
-  element.animate(
-    kony.ui.createAnimation({
-      "100": params,
-    }), {
-      "delay": delay,
-      "iterationCount": 1,
-      "fillMode": kony.anim.FILL_MODE_FORWARDS,
-      "duration": duration,
-    }, {
-      "animationEnd": callback
-    });
-
+function shakeLeft(element) {
+  if(!element) return;
+  var newval = parseInt(element.left);
+  animate(element, {left: newval-0.13+"%"}, 0.07);
+  animate(element, {left: newval+0.13+"%"}, 0.07);
 }

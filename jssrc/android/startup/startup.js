@@ -20,8 +20,12 @@ sessionID = "";
 function appInit(params) {
     skinsInit();
     initializeUserWidgets();
+    initializeTemp0bd9b6d9bc1324a();
+    initializeTemp0g5badfec3f224d();
     initializetmp();
+    frmGroupsGlobals();
     frmHomeGlobals();
+    frmProfileGlobals();
     setAppBehaviors();
 };
 

@@ -262,7 +262,6 @@ function addWidgetsfrmHome() {
         "isVisible": true,
         "layoutType": kony.flex.FREE_FORM,
         "left": "5%",
-        "onTouchStart": AS_FlexContainer_ie96dcc4713e417ab537404e8527396e,
         "skin": "slFbox",
         "top": "0dp",
         "width": "20%",
@@ -314,7 +313,6 @@ function addWidgetsfrmHome() {
         "isVisible": true,
         "layoutType": kony.flex.FREE_FORM,
         "left": "5%",
-        "onTouchStart": AS_FlexContainer_b685bae76f5849b8a63ad94a85ee489e,
         "skin": "slFbox",
         "top": "0dp",
         "width": "20%",
@@ -366,7 +364,6 @@ function addWidgetsfrmHome() {
         "isVisible": true,
         "layoutType": kony.flex.FREE_FORM,
         "left": "5%",
-        "onTouchStart": AS_FlexContainer_gc97c95e4e5d4b5491090176aec5bbbe,
         "skin": "slFbox",
         "top": "0dp",
         "width": "20%",
@@ -418,7 +415,6 @@ function addWidgetsfrmHome() {
         "isVisible": true,
         "layoutType": kony.flex.FREE_FORM,
         "left": "5%",
-        "onTouchStart": AS_FlexContainer_afc4693b44704b67bb557640c56c8512,
         "skin": "slFbox",
         "top": "0dp",
         "width": "20%",
@@ -467,18 +463,33 @@ function addWidgetsfrmHome() {
     var flxTopbar = new kony.ui.FlexContainer({
         "autogrowMode": kony.flex.AUTOGROW_NONE,
         "clipBounds": true,
-        "height": "50dp",
+        "height": "60dp",
         "id": "flxTopbar",
         "isVisible": true,
         "layoutType": kony.flex.FREE_FORM,
         "left": "0dp",
         "skin": "CopyslFbox0c6c432a1bc5b4d",
-        "top": "0dp",
+        "top": "-10dp",
         "width": "100%",
         "zIndex": 5
     }, {}, {});
     flxTopbar.setDefaultUnit(kony.flex.DP);
-    flxTopbar.add();
+    var Image0c4a5c191816545 = new kony.ui.Image2({
+        "centerX": "51%",
+        "centerY": "60%",
+        "height": "42dp",
+        "id": "Image0c4a5c191816545",
+        "isVisible": true,
+        "skin": "slImage",
+        "src": "amway.jpg",
+        "width": "150dp",
+        "zIndex": 1
+    }, {
+        "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
+        "padding": [0, 0, 0, 0],
+        "paddingInPixel": false
+    }, {});
+    flxTopbar.add(Image0c4a5c191816545);
     var flxDashboard = new kony.ui.FlexContainer({
         "autogrowMode": kony.flex.AUTOGROW_NONE,
         "bottom": "50dp",
@@ -1053,148 +1064,34 @@ function addWidgetsfrmHome() {
     flxDelete.add(imgDelete);
     flxActions1.add(flxAddNote, flxDelete);
     flxContactRow1.add(flxSelection1, flxContactCard1, flxActions1);
-    var flxContactRow2 = new kony.ui.FlexContainer({
+    flxDashboardContent.add(flxContactRow1);
+    var flxNoContacts = new kony.ui.FlexContainer({
         "autogrowMode": kony.flex.AUTOGROW_NONE,
+        "bottom": "0dp",
         "clipBounds": true,
-        "height": "110dp",
-        "id": "flxContactRow2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0",
-        "skin": "CopyslFbox0d5613a0c1e734c",
-        "top": 0,
-        "width": "100%"
-    }, {}, {});
-    flxContactRow2.setDefaultUnit(kony.flex.DP);
-    var flxSelection2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "95%",
-        "id": "flxSelection2",
-        "isVisible": true,
+        "id": "flxNoContacts",
+        "isVisible": false,
         "layoutType": kony.flex.FREE_FORM,
         "left": "0dp",
-        "skin": "slFbox",
-        "top": "0dp",
-        "width": "50dp",
+        "skin": "CopyslFbox0jbb044e845eb41",
+        "top": "50dp",
+        "width": "100%",
         "zIndex": 1
     }, {}, {});
-    flxSelection2.setDefaultUnit(kony.flex.DP);
-    var imgSelection2 = new kony.ui.Image2({
+    flxNoContacts.setDefaultUnit(kony.flex.DP);
+    var Label0g7bc7c70bc9c46 = new kony.ui.Label({
         "centerX": "50%",
         "centerY": "50%",
-        "height": "25dp",
-        "id": "imgSelection2",
+        "id": "Label0g7bc7c70bc9c46",
         "isVisible": true,
-        "left": "0dp",
-        "skin": "slImage",
-        "src": "checkbox_inactive.png",
-        "top": "0dp",
-        "width": "25dp",
-        "zIndex": 1
-    }, {
-        "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
-        "padding": [0, 0, 0, 0],
-        "paddingInPixel": false
-    }, {});
-    flxSelection2.add(imgSelection2);
-    var flxContactCard2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "95%",
-        "id": "flxContactCard2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0dp",
-        "skin": "CopyslFbox0c424129ebd2b42",
-        "top": 0,
-        "width": "100%",
-        "zIndex": 1
-    }, {}, {});
-    flxContactCard2.setDefaultUnit(kony.flex.DP);
-    var flxImageContainer2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "100%",
-        "id": "flxImageContainer2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0dp",
-        "skin": "CopyslFbox0ec5c9828b10e46",
-        "top": "0dp",
-        "width": "20%",
-        "zIndex": 1
-    }, {}, {});
-    flxImageContainer2.setDefaultUnit(kony.flex.DP);
-    var flxImage2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "centerX": "50%",
-        "clipBounds": true,
-        "height": "50dp",
-        "id": "flxImage2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0%",
-        "skin": "CopyslFbox0ec5c9828b10e46",
-        "top": "10%",
-        "width": "50dp",
-        "zIndex": 1
-    }, {}, {});
-    flxImage2.setDefaultUnit(kony.flex.DP);
-    var imgUser2 = new kony.ui.Image2({
-        "height": "100%",
-        "id": "imgUser2",
-        "isVisible": true,
-        "skin": "slImage0fb1e0c639dbc4b",
-        "src": "dummy.jpg",
-        "width": "100%",
-        "zIndex": 1
-    }, {
-        "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
-        "padding": [0, 0, 0, 0],
-        "paddingInPixel": false
-    }, {});
-    flxImage2.add(imgUser2);
-    flxImageContainer2.add(flxImage2);
-    var flxUser2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "centerY": "50%",
-        "clipBounds": true,
-        "height": "90%",
-        "id": "flxUser2",
-        "isVisible": true,
-        "layoutType": kony.flex.FLOW_VERTICAL,
-        "left": "20%",
-        "skin": "slFbox0d4c6632660e34a",
-        "width": "60%",
-        "zIndex": 1
-    }, {}, {});
-    flxUser2.setDefaultUnit(kony.flex.DP);
-    var flxUsername2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "30%",
-        "id": "flxUsername2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0dp",
-        "skin": "slFbox0d4c6632660e34a",
-        "top": "7%",
-        "width": "100%",
-        "zIndex": 1
-    }, {}, {});
-    flxUsername2.setDefaultUnit(kony.flex.DP);
-    var CopylblUsername0ca03f8070bdb40 = new kony.ui.Label({
-        "centerY": "43.78%",
-        "id": "CopylblUsername0ca03f8070bdb40",
-        "isVisible": true,
-        "left": "0dp",
-        "skin": "CopyslLabel0c7589cb3e79245",
-        "text": "John Doe",
+        "left": "131dp",
+        "skin": "CopyslLabel0c308913a304b44",
+        "text": "No contacts to display",
         "textStyle": {
             "letterSpacing": 0,
             "strikeThrough": false
         },
+        "top": "181dp",
         "width": kony.flex.USE_PREFFERED_SIZE,
         "zIndex": 1
     }, {
@@ -1204,210 +1101,8 @@ function addWidgetsfrmHome() {
     }, {
         "textCopyable": false
     });
-    flxUsername2.add(CopylblUsername0ca03f8070bdb40);
-    var flxMobile2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "30%",
-        "id": "flxMobile2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0dp",
-        "skin": "slFbox0d4c6632660e34a",
-        "top": "0dp",
-        "width": "100%",
-        "zIndex": 1
-    }, {}, {});
-    flxMobile2.setDefaultUnit(kony.flex.DP);
-    var CopylblMobile0a7331d095b074d = new kony.ui.Label({
-        "centerY": "43.78%",
-        "id": "CopylblMobile0a7331d095b074d",
-        "isVisible": true,
-        "left": "0dp",
-        "skin": "CopyslLabel0d12fc599b48242",
-        "text": "869-995-8048",
-        "textStyle": {
-            "letterSpacing": 0,
-            "strikeThrough": false
-        },
-        "width": kony.flex.USE_PREFFERED_SIZE,
-        "zIndex": 1
-    }, {
-        "contentAlignment": constants.CONTENT_ALIGN_CENTER,
-        "padding": [0, 0, 0, 0],
-        "paddingInPixel": false
-    }, {
-        "textCopyable": false
-    });
-    flxMobile2.add(CopylblMobile0a7331d095b074d);
-    var flxReminder2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "30%",
-        "id": "flxReminder2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0dp",
-        "skin": "slFbox0d4c6632660e34a",
-        "top": "0dp",
-        "width": "100%",
-        "zIndex": 1
-    }, {}, {});
-    flxReminder2.setDefaultUnit(kony.flex.DP);
-    var CopylblReminder0d22996be1ea14d = new kony.ui.Label({
-        "centerY": "43.78%",
-        "id": "CopylblReminder0d22996be1ea14d",
-        "isVisible": true,
-        "left": "0dp",
-        "skin": "CopyslLabel0ha910e7e6b4d46",
-        "text": "3rd July, Thurday 3PM",
-        "textStyle": {
-            "letterSpacing": 0,
-            "strikeThrough": false
-        },
-        "width": kony.flex.USE_PREFFERED_SIZE,
-        "zIndex": 1
-    }, {
-        "contentAlignment": constants.CONTENT_ALIGN_CENTER,
-        "padding": [0, 0, 0, 0],
-        "paddingInPixel": false
-    }, {
-        "textCopyable": false
-    });
-    flxReminder2.add(CopylblReminder0d22996be1ea14d);
-    flxUser2.add(flxUsername2, flxMobile2, flxReminder2);
-    var flxUsertypeContainer2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "100%",
-        "id": "flxUsertypeContainer2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "80%",
-        "skin": "slFbox0d4c6632660e34a",
-        "top": "0%",
-        "width": "20%",
-        "zIndex": 1
-    }, {}, {});
-    flxUsertypeContainer2.setDefaultUnit(kony.flex.DP);
-    var CopyflxUsertype0bed2e25e9d7145 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "centerX": "50.00%",
-        "centerY": "72%",
-        "clipBounds": true,
-        "height": "28dp",
-        "id": "CopyflxUsertype0bed2e25e9d7145",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "skin": "slFbox0d4c6632660e34a",
-        "width": "28dp",
-        "zIndex": 1
-    }, {}, {});
-    CopyflxUsertype0bed2e25e9d7145.setDefaultUnit(kony.flex.DP);
-    var CopyimgUsertype0g5edb441900547 = new kony.ui.Image2({
-        "height": "100%",
-        "id": "CopyimgUsertype0g5edb441900547",
-        "imageWhenFailed": "cardprospect.png",
-        "imageWhileDownloading": "cardprospect.png",
-        "isVisible": true,
-        "left": "0dp",
-        "skin": "slImage0fb1e0c639dbc4b",
-        "src": "cardbrown.png",
-        "top": "0dp",
-        "width": "100%",
-        "zIndex": 1
-    }, {
-        "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
-        "padding": [0, 0, 0, 0],
-        "paddingInPixel": false
-    }, {});
-    CopyflxUsertype0bed2e25e9d7145.add(CopyimgUsertype0g5edb441900547);
-    flxUsertypeContainer2.add(CopyflxUsertype0bed2e25e9d7145);
-    flxContactCard2.add(flxImageContainer2, flxUser2, flxUsertypeContainer2);
-    var flxActions2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "clipBounds": true,
-        "height": "95%",
-        "id": "flxActions2",
-        "isVisible": true,
-        "layoutType": kony.flex.FLOW_HORIZONTAL,
-        "right": "-120dp",
-        "skin": "slFbox0d4c6632660e34a",
-        "top": "0",
-        "width": "120dp",
-        "zIndex": 1
-    }, {}, {});
-    flxActions2.setDefaultUnit(kony.flex.DP);
-    var flxAddNote2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "centerY": "50%",
-        "clipBounds": true,
-        "height": "100%",
-        "id": "flxAddNote2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": 0,
-        "skin": "CopyslFbox0eb0f60413b1c4b",
-        "top": "0dp",
-        "width": "60dp",
-        "zIndex": 1
-    }, {}, {});
-    flxAddNote2.setDefaultUnit(kony.flex.DP);
-    var imgAddNote2 = new kony.ui.Image2({
-        "centerX": "50%",
-        "centerY": "50%",
-        "height": "28dp",
-        "id": "imgAddNote2",
-        "imageWhenFailed": "addnote.png",
-        "imageWhileDownloading": "addnote.png",
-        "isVisible": true,
-        "skin": "slImage0fb1e0c639dbc4b",
-        "src": "addnote.png",
-        "width": "28dp",
-        "zIndex": 1
-    }, {
-        "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
-        "padding": [0, 0, 0, 0],
-        "paddingInPixel": false
-    }, {});
-    flxAddNote2.add(imgAddNote2);
-    var flxDelete2 = new kony.ui.FlexContainer({
-        "autogrowMode": kony.flex.AUTOGROW_NONE,
-        "centerY": "50%",
-        "clipBounds": true,
-        "height": "100%",
-        "id": "flxDelete2",
-        "isVisible": true,
-        "layoutType": kony.flex.FREE_FORM,
-        "left": "0",
-        "skin": "CopyslFbox0bccc9e1c7aa64b",
-        "top": "0dp",
-        "width": "60dp",
-        "zIndex": 1
-    }, {}, {});
-    flxDelete2.setDefaultUnit(kony.flex.DP);
-    var imgDelete2 = new kony.ui.Image2({
-        "centerX": "50%",
-        "centerY": "50%",
-        "height": "28dp",
-        "id": "imgDelete2",
-        "imageWhenFailed": "delete.png",
-        "imageWhileDownloading": "delete.png",
-        "isVisible": true,
-        "skin": "slImage0fb1e0c639dbc4b",
-        "src": "delete.png",
-        "width": "28dp",
-        "zIndex": 1
-    }, {
-        "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
-        "padding": [0, 0, 0, 0],
-        "paddingInPixel": false
-    }, {});
-    flxDelete2.add(imgDelete2);
-    flxActions2.add(flxAddNote2, flxDelete2);
-    flxContactRow2.add(flxSelection2, flxContactCard2, flxActions2);
-    flxDashboardContent.add(flxContactRow1, flxContactRow2);
-    flxDashboard.add(flxDashboardAction, flxSelectAll, flxDashboardContent);
+    flxNoContacts.add(Label0g7bc7c70bc9c46);
+    flxDashboard.add(flxDashboardAction, flxSelectAll, flxDashboardContent, flxNoContacts);
     var mainOverlay = new kony.ui.FlexContainer({
         "autogrowMode": kony.flex.AUTOGROW_NONE,
         "clipBounds": true,
@@ -1432,9 +1127,7 @@ function addWidgetsfrmHome() {
         "id": "flxCreateNewGroup",
         "isVisible": false,
         "layoutType": kony.flex.FREE_FORM,
-        "left": "0dp",
         "skin": "CopyslFbox0fccf414c56f447",
-        "top": "180dp",
         "width": "70%",
         "zIndex": 7
     }, {}, {});
@@ -1602,7 +1295,7 @@ function addWidgetsfrmHome() {
         "left": "15%",
         "onClick": AS_Button_ea960b2a706342f38eb97fe9e3efeae9,
         "skin": "CopyslButtonGlossBlue0a34091d09b644c",
-        "text": "Apply",
+        "text": "Save",
         "width": kony.flex.USE_PREFFERED_SIZE,
         "zIndex": 5
     }, {
@@ -1634,7 +1327,232 @@ function addWidgetsfrmHome() {
     });
     flxCNGWrapper.add(flxCNGInputWrapper, flxCNGActions, lblInvalidGroupName);
     flxCreateNewGroup.add(flxCreateNewGroupTitle, flxCNGWrapper);
-    flxHome.add(flxContents, flxAction, helpOverlay, btn, flxNavbar, flxTopbar, flxDashboard, mainOverlay, flxCreateNewGroup);
+    var flxAddQuickNote = new kony.ui.FlexContainer({
+        "autogrowMode": kony.flex.AUTOGROW_NONE,
+        "centerX": "50%",
+        "centerY": "50%",
+        "clipBounds": true,
+        "height": "30%",
+        "id": "flxAddQuickNote",
+        "isVisible": false,
+        "layoutType": kony.flex.FREE_FORM,
+        "skin": "CopyslFbox0fccf414c56f447",
+        "width": "80%",
+        "zIndex": 7
+    }, {}, {});
+    flxAddQuickNote.setDefaultUnit(kony.flex.DP);
+    var CopyflxCreateNewGroupTitle0g17f2015b7754d = new kony.ui.FlexContainer({
+        "autogrowMode": kony.flex.AUTOGROW_NONE,
+        "clipBounds": true,
+        "height": "20%",
+        "id": "CopyflxCreateNewGroupTitle0g17f2015b7754d",
+        "isVisible": true,
+        "layoutType": kony.flex.FREE_FORM,
+        "left": "0dp",
+        "skin": "slFbox",
+        "top": "5%",
+        "width": "100%",
+        "zIndex": 1
+    }, {}, {});
+    CopyflxCreateNewGroupTitle0g17f2015b7754d.setDefaultUnit(kony.flex.DP);
+    var CopylblCreateNewGroups0j36008ddfa1642 = new kony.ui.Label({
+        "centerX": "50%",
+        "centerY": "50%",
+        "id": "CopylblCreateNewGroups0j36008ddfa1642",
+        "isVisible": true,
+        "left": "0dp",
+        "skin": "CopyslLabel0dfed15a0832446",
+        "text": "Add Note",
+        "textStyle": {
+            "letterSpacing": 0,
+            "strikeThrough": false
+        },
+        "top": "0dp",
+        "width": kony.flex.USE_PREFFERED_SIZE,
+        "zIndex": 1
+    }, {
+        "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+        "padding": [0, 0, 0, 0],
+        "paddingInPixel": false
+    }, {
+        "textCopyable": false
+    });
+    CopyflxCreateNewGroupTitle0g17f2015b7754d.add(CopylblCreateNewGroups0j36008ddfa1642);
+    var CopyflxCNGWrapper0a6c803baf58f45 = new kony.ui.FlexContainer({
+        "autogrowMode": kony.flex.AUTOGROW_NONE,
+        "clipBounds": true,
+        "height": "21.93%",
+        "id": "CopyflxCNGWrapper0a6c803baf58f45",
+        "isVisible": true,
+        "layoutType": kony.flex.FREE_FORM,
+        "left": "0dp",
+        "skin": "slFbox",
+        "top": "78.07%",
+        "width": "100%",
+        "zIndex": 1
+    }, {}, {});
+    CopyflxCNGWrapper0a6c803baf58f45.setDefaultUnit(kony.flex.DP);
+    var CopyflxCNGActions0deed36563ee44c = new kony.ui.FlexContainer({
+        "autogrowMode": kony.flex.AUTOGROW_NONE,
+        "bottom": "7%",
+        "clipBounds": true,
+        "height": "40dp",
+        "id": "CopyflxCNGActions0deed36563ee44c",
+        "isVisible": true,
+        "layoutType": kony.flex.FLOW_HORIZONTAL,
+        "right": "-5%",
+        "skin": "slFbox",
+        "width": "50%",
+        "zIndex": 1
+    }, {}, {});
+    CopyflxCNGActions0deed36563ee44c.setDefaultUnit(kony.flex.DP);
+    var btnCancelQuickNote = new kony.ui.Button({
+        "centerX": "32%",
+        "centerY": "50%",
+        "id": "btnCancelQuickNote",
+        "isVisible": true,
+        "left": "10%",
+        "onClick": AS_Button_d20b38ba5fc14c88aa946db3a6e8c9ae,
+        "skin": "CopyslButtonGlossBlue0g4eb4c43506d42",
+        "text": "Cancel",
+        "top": "0dp",
+        "width": kony.flex.USE_PREFFERED_SIZE,
+        "zIndex": 5
+    }, {
+        "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+        "displayText": true,
+        "padding": [0, 0, 0, 0],
+        "paddingInPixel": false
+    }, {});
+    var btnAddQuickNote = new kony.ui.Button({
+        "centerY": "50%",
+        "id": "btnAddQuickNote",
+        "isVisible": true,
+        "left": "15%",
+        "onClick": AS_Button_b494357310514e1da453471c91705f6c,
+        "skin": "CopyslButtonGlossBlue0a34091d09b644c",
+        "text": "Save",
+        "width": kony.flex.USE_PREFFERED_SIZE,
+        "zIndex": 5
+    }, {
+        "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+        "displayText": true,
+        "padding": [0, 0, 0, 0],
+        "paddingInPixel": false
+    }, {});
+    CopyflxCNGActions0deed36563ee44c.add(btnCancelQuickNote, btnAddQuickNote);
+    var lblInvalidNote = new kony.ui.Label({
+        "bottom": "43%",
+        "id": "lblInvalidNote",
+        "isVisible": false,
+        "right": "15%",
+        "skin": "CopyslLabel0a9cd7e10dcf24a",
+        "text": "Add some note.",
+        "textStyle": {
+            "letterSpacing": 0,
+            "strikeThrough": false
+        },
+        "width": kony.flex.USE_PREFFERED_SIZE,
+        "zIndex": 1
+    }, {
+        "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+        "padding": [0, 0, 0, 0],
+        "paddingInPixel": false
+    }, {
+        "textCopyable": false
+    });
+    CopyflxCNGWrapper0a6c803baf58f45.add(CopyflxCNGActions0deed36563ee44c, lblInvalidNote);
+    var FlexContainer0f88d034188d44a = new kony.ui.FlexContainer({
+        "autogrowMode": kony.flex.AUTOGROW_NONE,
+        "centerX": "50%",
+        "clipBounds": true,
+        "height": "50%",
+        "id": "FlexContainer0f88d034188d44a",
+        "isVisible": true,
+        "layoutType": kony.flex.FREE_FORM,
+        "left": "0dp",
+        "skin": "CopyslFbox0a7b7196ba29a41",
+        "top": "52dp",
+        "width": "90%",
+        "zIndex": 1
+    }, {}, {});
+    FlexContainer0f88d034188d44a.setDefaultUnit(kony.flex.DP);
+    var Image0fa964fba0b2d48 = new kony.ui.Image2({
+        "height": "15dp",
+        "id": "Image0fa964fba0b2d48",
+        "isVisible": true,
+        "left": "4dp",
+        "skin": "slImage",
+        "src": "text.png",
+        "top": "3dp",
+        "width": "15dp",
+        "zIndex": 1
+    }, {
+        "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
+        "padding": [0, 0, 0, 0],
+        "paddingInPixel": false
+    }, {});
+    var txtNote = new kony.ui.TextArea2({
+        "autoCapitalize": constants.TEXTAREA_AUTO_CAPITALIZE_NONE,
+        "focusSkin": "CopyslTextArea0a1745be501c549",
+        "height": "80%",
+        "id": "txtNote",
+        "isVisible": true,
+        "keyBoardStyle": constants.TEXTAREA_KEY_BOARD_STYLE_DEFAULT,
+        "left": "16dp",
+        "numberOfVisibleLines": 3,
+        "placeholder": "Enter note",
+        "skin": "CopyslTextArea0a1745be501c549",
+        "textInputMode": constants.TEXTAREA_INPUT_MODE_ANY,
+        "top": "11dp",
+        "width": "90%",
+        "zIndex": 1
+    }, {
+        "contentAlignment": constants.CONTENT_ALIGN_TOP_LEFT,
+        "padding": [2, 2, 2, 2],
+        "paddingInPixel": false
+    }, {
+        "placeholderSkin": "CopyslTextArea0e5f5b0aa6fc041"
+    });
+    FlexContainer0f88d034188d44a.add(Image0fa964fba0b2d48, txtNote);
+    flxAddQuickNote.add(CopyflxCreateNewGroupTitle0g17f2015b7754d, CopyflxCNGWrapper0a6c803baf58f45, FlexContainer0f88d034188d44a);
+    var flxNotification = new kony.ui.FlexContainer({
+        "autogrowMode": kony.flex.AUTOGROW_NONE,
+        "bottom": 0,
+        "clipBounds": true,
+        "height": "50dp",
+        "id": "flxNotification",
+        "isVisible": false,
+        "layoutType": kony.flex.FREE_FORM,
+        "left": "0dp",
+        "skin": "CopyslFbox0e1a1d5d77ec54e",
+        "width": "100%",
+        "zIndex": 7
+    }, {}, {});
+    flxNotification.setDefaultUnit(kony.flex.DP);
+    var lblNotification = new kony.ui.Label({
+        "centerY": "50%",
+        "id": "lblNotification",
+        "isVisible": true,
+        "left": "10%",
+        "skin": "CopyslLabel0d42b62bf831647",
+        "text": "No contacts to add.",
+        "textStyle": {
+            "letterSpacing": 0,
+            "strikeThrough": false
+        },
+        "top": "3dp",
+        "width": kony.flex.USE_PREFFERED_SIZE,
+        "zIndex": 1
+    }, {
+        "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+        "padding": [0, 0, 0, 0],
+        "paddingInPixel": false
+    }, {
+        "textCopyable": false
+    });
+    flxNotification.add(lblNotification);
+    flxHome.add(flxContents, flxAction, helpOverlay, btn, flxNavbar, flxTopbar, flxDashboard, mainOverlay, flxCreateNewGroup, flxAddQuickNote, flxNotification);
     frmHome.add(flxHome);
 };
 
@@ -1655,7 +1573,13 @@ function frmHomeGlobals() {
     }, {
         "footerOverlap": false,
         "headerOverlap": false,
+        "inTransitionConfig": {
+            "formAnimation": 0
+        },
         "menuPosition": constants.FORM_MENU_POSITION_AFTER_APPMENU,
+        "outTransitionConfig": {
+            "formAnimation": 0
+        },
         "retainScrollPosition": false,
         "titleBar": true,
         "titleBarSkin": "slTitleBar",

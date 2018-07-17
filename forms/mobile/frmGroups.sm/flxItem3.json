@@ -30,7 +30,7 @@
     },
     "_width_": {
         "type": "string",
-        "value": "20%"
+        "value": "25%"
     },
     "allboxes": [],
     "autogrowmode": 0,
@@ -43,7 +43,6 @@
     "containerweight": 100,
     "enablescrolling": true,
     "id": "flxItem3",
-    "ide_onTouchStart": "AS_FlexContainer_f3a8dbb803a4478287d3c8a73239ad91",
     "info": null,
     "isvisible": true,
     "kuid": "g80283fd65384372b5e2e373d799b679",

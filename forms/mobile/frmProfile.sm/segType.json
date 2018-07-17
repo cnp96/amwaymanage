@@ -1,0 +1,144 @@
+{
+    "@class": "com.kony.gen.viz.model.container.KVizSegment2",
+    "DNDConfig": null,
+    "__parentReadjusting__": false,
+    "_data_": [
+        [
+            {
+                "lblHeader": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Select a type"
+                }
+            },
+            [
+                {
+                    "lbltypelist": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Abo"
+                    }
+                },
+                {
+                    "lbltypelist": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Prospect"
+                    }
+                },
+                {
+                    "lbltypelist": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Customer"
+                    }
+                },
+                {
+                    "lbltypelist": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Customer & Prospect"
+                    }
+                }
+            ]
+        ]
+    ],
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_indicator_": "none",
+    "_left_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 2,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
+    "centery": {
+        "type": "string",
+        "value": "50%"
+    },
+    "containerweight": 100,
+    "counter": "03",
+    "focusedindex": null,
+    "focuseditem": null,
+    "generatedtemplate": "fc2017d07d494b5abce7321ec428a730",
+    "groupcells": false,
+    "hasSections": true,
+    "id": "segType",
+    "info": null,
+    "ipad": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "iphone": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "isvisible": true,
+    "kuid": "ac4693d67c674d4ab6963f0a307b15bd",
+    "masterdata": {},
+    "name": "kony.ui.SegmentedUI2",
+    "needpageindicator": true,
+    "pageoffdotimage": "pageoffdot.png",
+    "pageondotimage": "pageondot.png",
+    "paginationconfig": {
+        "position": "bottom"
+    },
+    "parent": "flxSegHolder",
+    "pf": "frmProfile",
+    "retainselection": false,
+    "rowTemplateId": "fc2017d07d494b5abce7321ec428a730",
+    "rowcounter": 3,
+    "rowfocusskin": "sa1dcb0ec6424e0bbac30790500e4abf",
+    "rowskin": "sa67be6b9115452692e04b8daf72cf17",
+    "rowtemplate": "flxSeglisttype",
+    "seccounter": 0,
+    "sectionHeaderTemplateId": "ce196d80846f4d92bebce400949a361a",
+    "sectionheaderskin": "s3460c65a5f44a52979f6a11aa168aae",
+    "sectionheadertemplate": "flxMainHeader0b22cbf4aba2a4a",
+    "selectedRows": null,
+    "selectedState": false,
+    "selectedindex": null,
+    "selectedindices": null,
+    "selecteditems": null,
+    "selectedsectionindex": 0,
+    "selectionbehavior": "default",
+    "separatorcolor": "61616100",
+    "separatorrequired": true,
+    "separatorthickness": 0,
+    "showscrollbars": false,
+    "viewtype": "tableview",
+    "wType": "Segment",
+    "widgetalignment": 5,
+    "widgetdatamap": {
+        "flxLineName": "flxLineName",
+        "flxMainHeader": "flxMainHeader",
+        "flxSeglisttype": "flxSeglisttype",
+        "lblHeader": "lblHeader",
+        "lbltypelist": "lbltypelist"
+    },
+    "zindex": 12
+}

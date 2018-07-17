@@ -1,0 +1,55 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizButton",
+    "DNDConfig": null,
+    "__parentReadjusting__": false,
+    "_height_": {
+        "type": "ref",
+        "value": "preferred"
+    },
+    "_margin_": [
+        6,
+        6,
+        6,
+        6
+    ],
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_right_": {
+        "type": "number",
+        "value": "20"
+    },
+    "_skin_": "s7a45f63af98419fb294fafbe6db9c0f",
+    "_text_": "Import",
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_width_": {
+        "type": "ref",
+        "value": "preferred"
+    },
+    "canUpdateUI": true,
+    "centery": {
+        "type": "string",
+        "value": "60%"
+    },
+    "containerweight": 100,
+    "contentalignment": 5,
+    "disabledSkins": {
+        "focusSkin": "s05594178dc74cf09d8ab45ddb696131"
+    },
+    "displaytext": true,
+    "id": "btnImport",
+    "info": null,
+    "isvisible": true,
+    "kuid": "f926100a1c0446fda6b012f8860c726d",
+    "name": "kony.ui.Button",
+    "parent": "flxTopbar",
+    "pf": "frmHome",
+    "wType": "Button",
+    "zindex": 1
+}

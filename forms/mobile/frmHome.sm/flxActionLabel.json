@@ -30,13 +30,14 @@
     },
     "_width_": {
         "type": "string",
-        "value": "40%"
+        "value": "60%"
     },
     "allboxes": [],
     "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
-        "lblActionLabel"
+        "lblActionLabel",
+        "lblContactsCount"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -45,7 +46,7 @@
     "info": null,
     "isvisible": true,
     "kuid": "b969be4dc7884432991320cbe9746221",
-    "layouttype": 2,
+    "layouttype": 3,
     "name": "kony.ui.FlexContainer",
     "parent": "flxDashboardAction",
     "pf": "frmHome",

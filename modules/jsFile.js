@@ -24,13 +24,16 @@ function animate( element, params, duration, callback, delay, count ){
     });
 }
 function notify(msg) {
+  if(animating) return;
   frmHome.lblNotification.text = msg;
   frmHome.flxNotification.bottom = "-50dp";
   frmHome.flxNotification.isVisible = true;  
+  animating = true;
   animate(frmHome.flxNotification, {bottom: "0dp"}, 0.2, function() {
     animate(this, {bottom: "-50dp"}, 0.2, function(){
       this.isVisible = false;
-    }, 1.5);
+      animating = false;
+    }, 1);
   });
 }
 function shake(element) {
@@ -69,14 +72,14 @@ function reset() {
     frmHome.segment.isVisible = false;
     frmHome.checkBox.isVisible = false;
     frmHome.flxAction.isVisible = false;
-    
+
     animate(frmHome.flxContents, {height: "0dp", width: "0dp"}, null, function(){
       frmHome.helpOverlay.isVisible = false;
     });
-    
+
     var trans = kony.ui.makeAffineTransform();
     trans.rotate(0);
-    
+
     animating = true;
     animate(frmHome.imgPlus, {
       "rectified": true,
@@ -92,11 +95,53 @@ function reset() {
 function applyFilters() {
   var data = [];
   try {
-  if(frmHome.checkBox.selectedKeyValues)
-    frmHome.checkBox.selectedKeyValues.forEach( (i => data.push(i[1])) );
-  } catch(e) {} 
+    if(frmHome.checkBox.selectedKeyValues)
+      frmHome.checkBox.selectedKeyValues.forEach( (i => data.push(i[1])) );
+  } catch(e) {}
   frmHome.lblActionLabel.text = data.length>0 ? "Filtered Contacts" : "All Contacts";
-  alert("Data > " + data.length);
+
+  showLoading("Filtering Contacts...");
+  var i=0;
+  frmHome.flxDashboardContent.removeAll();
+  if(data.length===0) {
+    for(; i<AllContacts.length; i++) {
+      addContact(AllContacts[i]);
+    }
+  }
+  else {
+    var contacts = {};
+    for(; i<data.length; i++) {
+      if(data[i] == "Hot Prospects") data[i] = "Prospects";
+      if(data[i] == "Business Prospects") data[i] = "Prospects and Customers";
+      
+      Groups[data[i]].forEach(g => contacts[g.lblMobile] = g);
+    }
+    
+    for(var c in contacts) {
+      addContact(contacts[c]);
+    }    
+  }
+  if(frmHome.helpOverlay.isVisible) frmHome.helpOverlay.isVisible = false;
+  
+  frmHome.lblContactsCount.text = "(" + frmHome.flxDashboardContent.widgets().length + ")";
+  frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
+  loadContacts();
+  dismissLoading();
+}
+function any(ar, item) {
+  var map = {
+    "Hot Prospects" : "cardblue.png",
+    "Customers" : "cardbrown.png",
+    "ABOs" : "cardgreen.png",
+    "Business Prospects": "cardtomato.png",
+    "Prospects" : "cardblue.png",
+    "Prospects and Customers": "cardtomato.png"
+  };
+
+  for(var i=0; i<ar.length; i++) {
+    if(item == map[ar[i]] ) return true;
+  }
+  return false;
 }
 
 // Multi Select
@@ -104,11 +149,27 @@ function showSelection(val) {
   toggleCounter = 0;
   var n = frmHome.flxDashboardContent.widgets().length + 1;
   var left = val ? "50dp" : "0dp";  
+
+  var selectedGroups;
+  if(newGroupName === "")
+    selectedGroups = frmHome.checkBox.selectedKeyValues;
+  else
+    selectedGroups = [["",newGroupName]];
+
   for(var i=1; i<n; i++) {
     animate(frmHome["flxContactCard"+i], {left: left}, 0.1);
     frmHome["imgSelection"+i].src = "checkbox_inactive.png";
+    if(!val) continue;
+    for(var j=0; j<selectedGroups.length; j++){
+      for(var k=0 ;k< Groups[selectedGroups[j][1]].length ;k++){  
+        if(Groups[selectedGroups[j][1]][k]["lblMobile"] == frmHome["lblMobile"+i].text ){
+          frmHome["imgSelection"+i].src = "checkbox_active.png";
+          break;
+        }
+      }
+    } 
   }
-  
+
   frmHome.btn.isVisible = !val;
   frmHome.lblActionLabel.text = val ? "Add To Groups" : "All Contacts";
   frmHome.flxActionContext.isVisible = val;
@@ -117,18 +178,40 @@ function showSelection(val) {
   frmHome.flxDashboardContent.top = val ? "80dp" : "50dp";
 }
 function cancelSelection() {
+  newGroupName = "";
   showSelection(false);
 }
 function applySelection() {
   var n = frmHome.flxDashboardContent.widgets().length + 1;
   var selectedContacts = 0;//[];
-  for(var i=1; i<n; i++) {
-    if(frmHome["imgSelection"+i].src == "checkbox_active.png") selectedContacts++;
+  var groups ;
+  if( newGroupName === "" ) {
+    groups= [];
+    frmHome.checkBox.selectedKeyValues.forEach( (i => groups.push(i[1])) );
   }
-  var groups = [];
-  frmHome.checkBox.selectedKeyValues.forEach( (i => groups.push(i[1])) );
+  else {
+    groups = [newGroupName];
+    newGroupName = "";
+  }
+
+  groups.forEach(i => delete Groups[i]);
+
+  groups.forEach(i => Groups[i]=[]);
+
+  for(var i=1; i<n; i++) {
+    if(frmHome["imgSelection"+i].src == "checkbox_active.png"){
+      selectedContacts++;
+      groups.forEach(j => Groups[j].push({
+        "imgUser": "dummy.jpg",
+        "imgUsertype": frmHome["imgUsertype"+i].src,
+        "lblMobile": frmHome["lblMobile"+i].text,
+        "lblReminder": "No Follow Ups",
+        "lblUsername": frmHome["lblUsername"+i].text
+      }));
+    }
+  }
   alert("Added " + selectedContacts + " contacts to " + groups);
-  
+
   showSelection(false);
 }
 function toggleSelection(item) {
@@ -136,7 +219,7 @@ function toggleSelection(item) {
   //alert(element);  
   var img = frmHome[element].src == "checkbox_inactive.png" ? "checkbox_active.png" : "checkbox_inactive.png";
   frmHome[element].src = img;
-  
+
   toggleCounter += img=="checkbox_inactive.png" ? -1 : 1;
   frmHome.imgSelectAll.src = toggleCounter == frmHome.flxDashboardContent.widgets().length ? "checkbox_active.png" : "checkbox_inactive.png";
 }
@@ -157,7 +240,7 @@ function onClickBack() {
   frmHome.segment.left = "-100%";
   frmHome.segment.isVisible = true;
   animate(frmHome.segment, {left: "0%"}, 0.3);
-  
+
 }
 function onSegmentRowClick() {
   try {
@@ -167,15 +250,23 @@ function onSegmentRowClick() {
     }
     else if(selectedIndex === 1) {
       if(frmHome.flxDashboardContent.widgets().length === 0) {
-        //alert("No contacts");        
         notify("No contacts to add.");
+        return;
       }
       else onClickOfAddToGroup();
     }
     else if(selectedIndex === 2) {
+      if(frmHome.flxDashboardContent.widgets().length === 0) {
+        notify("No contacts to add.");
+        return;
+      }
       onClickOfCreateNewGroup();
     }
     else if(selectedIndex === 3) {
+      if(frmHome.flxDashboardContent.widgets().length === 0) {
+        notify("No contacts to filter.");
+        return;
+      }
       onClickOffilters();
     }
   }
@@ -186,17 +277,16 @@ function onSegmentRowClick() {
 function onClickOfAddToGroup() {
   try
   {
-    var masterData = [
-      ["Key1","Prospects"],
-      ["Key2","Customers"],
-      ["Key3","Prospects and Customers"],
-      ["Key4","ABOs"],
-    ];
+    var masterData = [];
+    for(var i in Groups) {
+      masterData.push([i,i]);
+    }
+
     frmHome.checkBox.masterData = masterData;
     frmHome.btnClear.text = selectedGroupsData.length > 0 ? "Clear Selections" : "Tap To Select";
     if(selectedGroupsData.length > 0)
       frmHome.checkBox.selectedKeys = selectedGroupsData;
-    
+
     frmHome.flxAction.height = "0dp";
     frmHome.flxAction.isVisible = true;
     animate(frmHome.flxAction, {height: "35dp"}, 0.2);
@@ -206,7 +296,7 @@ function onClickOfAddToGroup() {
     frmHome.checkBox.centerX = "153%";
     frmHome.checkBox.isVisible = true;
     animate(frmHome.checkBox, {centerX: "53%"},0.2);
-    
+
   }
   catch(e) {
     kony.print(e);
@@ -219,12 +309,12 @@ function onClickOffilters() {
       ["Key2","Customers"],
       ["Key3","ABOs"],
       ["Key4","Business Prospects"],
-      ["Key5","No Follow-Ups"]
+      //       ["Key5","No Follow-Ups"]
     ];
     frmHome.checkBox.masterData = masterData;
     frmHome.flxAction.isVisible = true;
     frmHome.btnClear.text = selectedFiltersData.length > 0 ? "Clear Selections" : "Tap To Select";
-    
+
     if(selectedFiltersData.length > 0)
       frmHome.checkBox.selectedKeys = selectedFiltersData;
 
@@ -253,7 +343,7 @@ function onClickClear() {
       selectedFiltersData = [];
     }
     frmHome.btnClear.text = "Tap To Select";
-    applyFilters();
+    //applyFilters();
   }
   catch(e) {
     kony.print(e);
@@ -264,14 +354,16 @@ function onClickApply() {
     reset();
     if(frmHome.segment.selectedRowIndex[1] == 1) {
       selectedGroupsData = frmHome.checkBox.selectedKeys || [];
+      showSelection(selectedGroupsData.length>0);
     }
     else if(frmHome.segment.selectedRowIndex[1] == 3) {
       selectedFiltersData = frmHome.checkBox.selectedKeys || [];
     }
 
     var sel = [];
-    if(frmHome.checkBox.selectedKeyValues)
+    try {
       frmHome.checkBox.selectedKeyValues.forEach( (i => sel.push(i[1])) );
+    } catch(e) {}
 
     if(frmHome.segment.selectedRowIndex[1] == 1) showSelection(sel.length > 0);
     else applyFilters();
@@ -308,13 +400,16 @@ function dismissCreateNewGroup() {
   animate(frmHome.mainOverlay, {opacity: 0}, 0.3, function(){ this.isVisible = false;});
 }
 function saveGroup() {
-  if(!frmHome.tbxNewGroup.text || frmHome.tbxNewGroup.text === "") {
+  if(!frmHome.tbxNewGroup.text || frmHome.tbxNewGroup.text === "" || Groups.hasOwnProperty(frmHome.tbxNewGroup.text)) {
     frmHome.lblInvalidGroupName.isVisible = true;
     shake(frmHome.flxCreateNewGroup);
     return;
   }
   frmHome.lblInvalidGroupName.isVisible = false;
-  alert("create new group \"" + frmHome.tbxNewGroup.text + "\"");
+  Groups[frmHome.tbxNewGroup.text] = [];
+  newGroupName = frmHome.tbxNewGroup.text;
+  dismissCreateNewGroup();
+  showSelection(true);
 }
 function handleTextChange(){
   frmHome.lblInvalidGroupName.isVisible = !frmHome.tbxNewGroup.text ||  frmHome.tbxNewGroup.text==="";

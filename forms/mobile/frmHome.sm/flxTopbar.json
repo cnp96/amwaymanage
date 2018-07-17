@@ -36,7 +36,8 @@
     "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
-        "Image0c4a5c191816545"
+        "Image0c4a5c191816545",
+        "btnImport"
     ],
     "clipbounds": true,
     "containerweight": 100,

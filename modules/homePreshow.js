@@ -32,7 +32,7 @@ function homePreshow() {
   
   frmHome.flxItem2.onClick = function() { frmGroups.show(); };
   frmHome.flxItem3.onClick = function() { frmProfile.show(); };
-  
+  frmHome.btnImport.onClick = importContacts;
   
   /*var data = [{
     "imgUser": "dummy.jpg",
@@ -42,16 +42,18 @@ function homePreshow() {
     "lblUsername": "John Doe"
   }];*/
   frmHome.flxDashboardContent.removeAll();
-  frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
-  for(var i=0; i<3; i++) {
-    addContact();
+  
+  for(var i=0; i<AllContacts.length; i++) {
+    addContact(AllContacts[i]);
   }
+  frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
+  frmHome.lblContactsCount.text = "(" + frmHome.flxDashboardContent.widgets().length + ")";
   
   loadContacts();
   
 }
 
-function addContact() {
+function addContact(card) {
   var id = frmHome.flxDashboardContent.widgets().length+1;
   var flxContactRow = new kony.ui.FlexContainer({
     "autogrowMode": kony.flex.AUTOGROW_NONE,
@@ -146,7 +148,7 @@ function addContact() {
     "id": "imgUser"+id,
     "isVisible": true,
     "skin": "slImage0fb1e0c639dbc4b",
-    "src": "dummy.jpg",
+    "src": card.imgUser,
     "width": "100%",
     "zIndex": 1
   }, {
@@ -190,7 +192,7 @@ function addContact() {
     "isVisible": true,
     "left": "0dp",
     "skin": "CopyslLabel0c7589cb3e79245",
-    "text": "John Doe",
+    "text": card.lblUsername,
     "textStyle": {
       "letterSpacing": 0,
       "strikeThrough": false
@@ -225,7 +227,7 @@ function addContact() {
     "isVisible": true,
     "left": "0dp",
     "skin": "CopyslLabel0d12fc599b48242",
-    "text": "869-995-8048",
+    "text": card.lblMobile,
     "textStyle": {
       "letterSpacing": 0,
       "strikeThrough": false
@@ -260,7 +262,7 @@ function addContact() {
     "isVisible": true,
     "left": "0dp",
     "skin": "CopyslLabel0ha910e7e6b4d46",
-    "text": "No Follow Ups",
+    "text": card.lblReminder,
     "textStyle": {
       "letterSpacing": 0,
       "strikeThrough": false
@@ -312,7 +314,7 @@ function addContact() {
     "isVisible": true,
     "left": "0dp",
     "skin": "slImage0fb1e0c639dbc4b",
-    "src": "cardbrown.png",
+    "src": card.imgUsertype,
     "top": "0dp",
     "width": "100%",
     "zIndex": 1
@@ -410,11 +412,18 @@ function addContact() {
   frmHome.flxNoContacts.isVisible = false;
 }
 function deleteContact() {
-  var card = "flxContactRow" + this.id.split("flxDelete")[1];
-  //alert("Delete Card " +  card);
+  var id = this.id.split("flxDelete")[1];
+  var card = "flxContactRow" + id;
+
+  AllContacts = AllContacts.filter(i => i.lblMobile !== frmHome["lblMobile"+id].text);
+  for(var j in Groups) {
+    Groups[j] = Groups[j].filter(i => i.lblMobile !== frmHome["lblMobile"+id].text);
+  }
+  
   animate(frmHome[card], {height: "0%"}, 0.2, function() {
     frmHome.flxDashboardContent.remove(frmHome[card]);
     frmHome.flxNoContacts.isVisible = frmHome.flxDashboardContent.widgets().length === 0;
+    frmHome.lblContactsCount.text = "(" + frmHome.flxDashboardContent.widgets().length + ")";
   });
 }
 
@@ -441,4 +450,53 @@ function dismissQuickNote() {
   frmHome.txtNote.text = "";
   animate(frmHome.flxAddQuickNote, {height: "0%", width: "0%"}, 0.3, function(){this.isVisible = false;});
   animate(frmHome.mainOverlay, {opacity: 0}, 0.3, function(){ this.isVisible = false;});
+}
+
+function importContacts() {
+  frmHome.flxDashboardContent.removeAll();
+  AllContacts = [];
+  frmHome.flxNoContacts.isVisible = false;
+  showLoading();
+  var contacts = kony.contact.find("*", true);
+  frmHome.flxNoContacts.isVisible = contacts.length === 0;
+  
+  kony.print("Contacts >> Imported " + contacts.length + " contacts");
+  try {
+    var card;
+    var map = {
+      "cardblue.png": "Prospects",
+      "cardgreen.png": "Customers",
+      "cardtomato.png": "Prospects and Customers",
+      "cardbrown.png": "ABOs"
+    };
+    for(var i=0; i<contacts.length; i++) {
+      if(!contacts[i].phone) continue;
+      card = {
+        lblUsername: contacts[i].firstname + " " + (contacts[i].middlename ? contacts[i].middlename : "") + " " + (contacts[i].lastname ? contacts[i].lastname : ""),
+        lblMobile: contacts[i].phone[0].number,
+        imgUser: "dummy.jpg",
+        lblReminder: "No Follow Ups",
+        imgUsertype: getUsertype(i)
+      };
+      Groups[map[getUsertype(i)]].push(card);
+      AllContacts.push(card);
+      addContact(card);
+    }
+  } catch(e){}
+  
+  frmHome.lblActionLabel.text = "All Contacts";
+  frmHome.lblContactsCount.text = "(" + AllContacts.length + ")";
+  loadContacts();
+  dismissLoading();
+}
+  
+function getUsertype(i) {
+  return i%7===0 ? "cardblue.png" : i%5===0 ? "cardgreen.png" : i%3===0 ? "cardtomato.png" : "cardbrown.png";
+}
+
+function showLoading(msg) {
+  kony.application.showLoadingScreen(null, msg || "Importing...", constants.LOADING_SCREEN_POSITION_ONLY_SCREEN , true, true, null);
+}
+function dismissLoading() {
+  kony.application.dismissLoadingScreen();
 }

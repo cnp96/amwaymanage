@@ -1,0 +1,11 @@
+{
+  "background_image": "chevron.png",
+  "bg_type": "image",
+  "border_color": "000000ff",
+  "border_style": "plain",
+  "border_type": 0,
+  "border_width": 0,
+  "isDefaultSkin": false,
+  "kuid": "s93f81dc73a242c1a0c6309c65d1046c",
+  "wType": "FlexContainer"
+}

@@ -5,6 +5,10 @@ function AS_Button_a371b440b3374a45a80f9427dbd8015e(eventobject) {
 
 function AS_Button_ad3914dedfc3427e9fcb668c33001517(eventobject) {}
 
+function AS_Button_b494357310514e1da453471c91705f6c(eventobject) {
+    return onClickApply.call(this);
+}
+
 function AS_Button_b8b39ee9365049d2a8e4edaa7cda4e0d(eventobject) {
     return onClickBack.call(this);
 }
@@ -19,6 +23,10 @@ function AS_Button_bb665bf1527f4e479a85ce49dcbffdc2(eventobject) {
 
 function AS_Button_bc3c5e3a55934d8ebc148ff42623bef6(eventobject) {
     return onClickBack.call(this);
+}
+
+function AS_Button_d20b38ba5fc14c88aa946db3a6e8c9ae(eventobject) {
+    return onClickClear.call(this);
 }
 
 function AS_Button_d4246be777ab43c7863c3597023cfab5(eventobject) {
@@ -97,6 +105,10 @@ function AS_FlexContainer_a2d060db67954fd7a6568626e63b2521(eventobject) {
     animateNavbar(1);
 }
 
+function AS_FlexContainer_a4ed834c43784d89b67a40a51098d1f4(eventobject, x, y) {
+    animateNavbar(4);
+}
+
 function AS_FlexContainer_afc4693b44704b67bb557640c56c8512(eventobject, x, y) {
     animateNavbar(4);
 }
@@ -107,6 +119,10 @@ function AS_FlexContainer_b685bae76f5849b8a63ad94a85ee489e(eventobject, x, y) {
 
 function AS_FlexContainer_b73fba71874942ef93e0507a77ed6033(eventobject) {
     animateNavbar(3);
+}
+
+function AS_FlexContainer_bdc8a7bce0004d04af88f71ba21bc91a(eventobject, x, y) {
+    animateNavbar(4);
 }
 
 function AS_FlexContainer_d35483e8b8444b4099998c771a049f4c(eventobject) {
@@ -121,20 +137,63 @@ function AS_FlexContainer_d9c7841c791c476e9e1482e2dd1b727b(eventobject) {
     return reset.call(this);
 }
 
+function AS_FlexContainer_e1c5dd1bd1124c43a62623c3775bb6ae(eventobject, x, y) {
+    animateNavbar(2);
+}
+
+function AS_FlexContainer_e4af47e6827143b9a966ccb03a3f960b(eventobject, x, y) {
+    animateNavbar(3);
+}
+
 function AS_FlexContainer_ecefad01cc004a60875052f4f77810f9(eventobject) {
     return reset.call(this);
+}
+
+function AS_FlexContainer_ef82cb57e4f043a58d8ca5c8e225d8b6(eventobject, x, y) {
+    animateNavbar(2);
 }
 
 function AS_FlexContainer_f2588fab9f01493f8e6f1e711b39b01f(eventobject) {
     return reset.call(this);
 }
 
+function AS_FlexContainer_f3a8dbb803a4478287d3c8a73239ad91(eventobject, x, y) {
+    animateNavbar(3);
+}
+
 function AS_FlexContainer_gc97c95e4e5d4b5491090176aec5bbbe(eventobject, x, y) {
     animateNavbar(3);
 }
 
+function AS_FlexContainer_hd5ec402b4d44f0fa21fbb6fd64f0182(eventobject, x, y) {
+    animateNavbar(1);
+}
+
+function AS_FlexContainer_i1cbe30499e84212900d6a91356b2f20(eventobject, x, y) {
+    animateNavbar(1);
+}
+
 function AS_FlexContainer_ie96dcc4713e417ab537404e8527396e(eventobject, x, y) {
     animateNavbar(1);
+}
+
+function AS_FlexContainer_jb662a55cc0f44878840e8fce6205182(eventobject, x, y) {
+    function MOVE_ACTION____cf896652102c434bb8b4e357d467b9fc_Callback() {}
+    frmGroups.flxNavbar.animate(kony.ui.createAnimation({
+        "100": {
+            "stepConfig": {
+                "timingFunction": kony.anim.EASE
+            },
+            "rectified": true
+        }
+    }), {
+        "delay": 0,
+        "iterationCount": 1,
+        "fillMode": kony.anim.FILL_MODE_FORWARDS,
+        "duration": 0.25
+    }, {
+        "animationEnd": MOVE_ACTION____cf896652102c434bb8b4e357d467b9fc_Callback
+    });
 }
 
 function AS_FlexContainer_onClickFlex(eventobject) {
@@ -143,6 +202,10 @@ function AS_FlexContainer_onClickFlex(eventobject) {
 
 function AS_FlexContainer_c69a3f474d48446e8d63f3851bdb0c2f(eventobject) {
     return reset.call(this);
+}
+
+function AS_Form_a102526ec2ab4c20ad50973344c42e1d(eventobject) {
+    frmPreShow();
 }
 
 function AS_Form_a8ca0f09e0d34c67a9e972a39acbe719(eventobject) {
@@ -163,4 +226,8 @@ function AS_Segment_onClick(eventobject, sectionNumber, rowNumber) {
 
 function AS_Segment_a197217f368048129ad7335f6d8624f4(eventobject, sectionNumber, rowNumber) {
     return onSegmentRowClick.call(this);
+}
+
+function AS_Form_i106e5b892464d57992cc228e00e2b4f(eventobject) {
+    profilePreshow();
 }
