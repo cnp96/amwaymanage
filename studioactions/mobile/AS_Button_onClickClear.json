@@ -15,8 +15,7 @@
             "display": "onClickClear",
             "inputparams": [],
             "callbackType": null,
-            "disabled": null,
-            "source": "module"
+            "disabled": null
         }]
     }
 }

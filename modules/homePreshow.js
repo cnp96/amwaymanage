@@ -1,14 +1,14 @@
 function homePreshow() {
   frmProfile.destroy();
   
-  frmHome.flxTopbar.shadowDepth = 4;
-  frmHome.btn.shadowDepth = 5;
-  frmHome.flxAddQuickNote.shadowDepth = 7;  
+  //frmHome.flxTopbar.shadowDepth = 4;
+  //frmHome.btn.shadowDepth = 5;
+  //frmHome.flxAddQuickNote.shadowDepth = 7;  
   frmHome.btnCancelQuickNote.onClick = dismissQuickNote;
   frmHome.btnAddQuickNote.onClick = saveQuickNote;
   
-  frmHome.mainOverlay.shadowDepth = 6;
-  frmHome.flxCreateNewGroup.shadowDepth = 7;
+ // frmHome.mainOverlay.shadowDepth = 6;
+  //frmHome.flxCreateNewGroup.shadowDepth = 7;
   frmHome.mainOverlay.onClick = function(){};//dismissCreateNewGroup;
   frmHome.flxCreateNewGroup.onTouchStart = function(){};
   frmHome.cancelGroup.onClick = dismissCreateNewGroup;
@@ -19,10 +19,10 @@ function homePreshow() {
   frmHome.flxCancel.onClick = cancelSelection;
   frmHome.flxSelectAll.onClick = selectAll;
   frmHome.flxApply.onClick = applySelection;
-  frmHome.flxContents.shadowDepth = 3;
-  frmHome.flxAction.shadowDepth = 3;
-  frmHome.flxNavbar.shadowDepth = 5;
-  frmHome.flxNotification.shadowDepth = 6;
+  //frmHome.flxContents.shadowDepth = 3;
+  //frmHome.flxAction.shadowDepth = 3;
+  //frmHome.flxNavbar.shadowDepth = 5;
+  //frmHome.flxNotification.shadowDepth = 6;
   
   var data = [
     {img: "group.png", lblName: "Manage Groups"},
@@ -485,7 +485,7 @@ function importContacts() {
       card = {
         lblUsername: contacts[i].firstname + " " + (contacts[i].middlename ? contacts[i].middlename : "") + " " + (contacts[i].lastname ? contacts[i].lastname : ""),
         lblMobile: contacts[i].phone[0].number,
-        imgUser: "dummy.jpg",
+        imgUser: "option3.png",
         lblReminder: "No Follow Ups",
         imgUsertype: getUsertype(i)
       };

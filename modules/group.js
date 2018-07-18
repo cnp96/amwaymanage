@@ -5,7 +5,7 @@ function frmPreShow(){
   frmGroups.lblABOsCount.text = Groups.ABOs.length + " members";
   frmGroups.lblCustomerAndProspectCount.text = Groups["Prospects and Customers"].length + " members";
   
-  frmGroups.flxTopbar1.shadowDepth = 4;
+  //frmGroups.flxTopbar1.shadowDepth = 4;
   frmGroups.flxCustomer.onTouchStart = showShadow;
   frmGroups.flxProspect.onTouchStart = showShadow;
   frmGroups.flxProspectCustomer.onTouchStart = showShadow;
@@ -78,7 +78,7 @@ function callBack(widget , info){
   try {
     kony.timer.cancel("timerid");
   } catch(e){}
-  kony.timer.schedule("timerid", animateTimer, 0.14, true);
+  //kony.timer.schedule("timerid", animateTimer, 0.14, true);
   
 }
 

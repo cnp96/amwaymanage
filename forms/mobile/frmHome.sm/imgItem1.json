@@ -25,7 +25,7 @@
         0
     ],
     "_skin_": "s16d09c22b01420c908faba6776ac049",
-    "_src_": "home_active.png",
+    "_src_": "home_inactive.png",
     "_width_": {
         "type": "string",
         "value": "26dp"

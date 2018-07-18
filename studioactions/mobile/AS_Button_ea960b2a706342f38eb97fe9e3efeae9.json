@@ -14,8 +14,7 @@
             "display": "onClickApply",
             "inputparams": [],
             "callbackType": null,
-            "disabled": null,
-            "source": "module"
+            "disabled": null
         }]
     }
 }

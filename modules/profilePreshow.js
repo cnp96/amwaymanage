@@ -16,7 +16,7 @@ function saveContact() {
   var type = frmProfile.segType.selectedRowItems[0].lbltypelist;
   
   var data = {
-    "imgUser": "dummy.jpg",
+    "imgUser": "option3.png",
     "imgUsertype": getUsertype(AllContacts.length+1),
     "lblMobile": mobile,
     "lblReminder": "No Follow Ups",

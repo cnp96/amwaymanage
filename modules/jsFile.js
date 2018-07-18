@@ -4,7 +4,7 @@ var selectedFiltersData = [];
 // Utility functions
 function animate( element, params, duration, callback, delay, count ){
   kony.print("[Parthu]Element in animate method::"+element);
-  duration = duration || 0.25;
+  duration  = 0;
   callback = callback || null;
   delay = delay || 0;
   count = count || 1;
@@ -202,7 +202,7 @@ function applySelection() {
     if(frmHome["imgSelection"+i].src == "checkbox_active.png"){
       selectedContacts++;
       groups.forEach(j => Groups[j].push({
-        "imgUser": "dummy.jpg",
+        "imgUser": "option3.png",
         "imgUsertype": frmHome["imgUsertype"+i].src,
         "lblMobile": frmHome["lblMobile"+i].text,
         "lblReminder": "No Follow Ups",

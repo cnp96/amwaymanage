@@ -20,20 +20,14 @@
         0
     ],
     "_skin_": "s16d09c22b01420c908faba6776ac049",
-    "_src_": "prospect.png",
+    "_src_": "option3.png",
     "_width_": {
         "type": "string",
         "value": "70%"
     },
     "canUpdateUI": true,
-    "centerx": {
-        "type": "string",
-        "value": "50%"
-    },
-    "centery": {
-        "type": "string",
-        "value": "25%"
-    },
+    "centerx": "50%",
+    "centery": "25%",
     "containerweight": 100,
     "context": {
         "channel": "mobile",
