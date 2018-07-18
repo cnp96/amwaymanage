@@ -4,7 +4,7 @@
     "isNewAppWithRespectToAndroidPackageName": "",
     "apppackagekey": "",
     "appaddrkey": "",
-    "appnamekey": "Amway",
+    "appnamekey": "AmwayManage",
     "currentgaversion": "7.3.0.19",
     "appversionkey": "1.0.0",
     "project.type": "js",
@@ -28,7 +28,7 @@
     "mwhttpsportkey": "",
     "defaulttheme": "defaultTheme",
     "nativeContainerProperties": {
-        "isModified": true,
+        "isModified": false,
         "isEnableJSContainer": false,
         "isEnableJSContainerAndroid": false,
         "isEnableJSContaineriOS": false
