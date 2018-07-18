@@ -1,9 +1,9 @@
 function loadContacts() {
   var n = frmHome.flxDashboardContent.widgets().length+1;
   for(var i=1; i<n; i++) {
-    frmHome["flxContactCard" + i].onTouchStart = startSwipe;
-    frmHome["flxContactCard" + i].onTouchMove = moveSwipe;
-    frmHome["flxContactCard" + i].onTouchEnd = endSwipe;
+    //frmHome["flxContactCard" + i].onTouchStart = startSwipe;
+    //frmHome["flxContactCard" + i].onTouchMove = moveSwipe;
+    //frmHome["flxContactCard" + i].onTouchEnd = endSwipe;
     frmHome["flxContactCard" + i].onClick = contactClicked;    
     
     frmHome["flxAddNote"+i].onClick = addNote;
@@ -30,6 +30,7 @@ function moveSwipe(source, x, y) {
   if( curDiff > 0 && frmHome[element].right == "0dp" ) return;
   swiping = true;
   frmHome[element].right = curDiff < 0 ? (curDiff < -120 ? -120 : curDiff > 120 ? 0 : curDiff) : (curDiff < -120 ? -120 : curDiff > 120 ? 0 : curDiff-120) + "dp";
+  frmHome.forceLayout();
 }
 
 function endSwipe(source, x, y) {
